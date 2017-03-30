@@ -1,11 +1,10 @@
-/* Styles go here */
-
-
-.navbar-brand{
-  font-family: 'Pacifico', cursive;
-  font-size: 43px !important;
+/* General */
+html,
+body {
+  height: 100%;
 }
 
+/* Carousel */
 .carousel-caption{
   text-align: left !important;
   position: absolute;
@@ -18,14 +17,6 @@
 
 .btn-more-padding{
   padding: 2%;
-}
-
-
-/*Carousel */
-
-html,
-body {
-  height: 100%;
 }
 
 .carousel,
@@ -48,10 +39,7 @@ body {
   -o-background-size: cover;
 }
 
-
-
-
-/* Footer Style*/
+/* Footer Style */
 footer {
   margin: 50px 0;
 }
@@ -75,7 +63,6 @@ i.fa-envelope{
 }
 
 /* Footer links */
-
 .footer-distributed p.footer-links{
   font-size:18px;
   font-weight: bold;
@@ -113,7 +100,6 @@ i.fa-envelope{
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
-
 @media (max-width: 600px) {
 
   .footer-distributed .footer-left,
