@@ -8,6 +8,9 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { Caption01Component } from './caption01/caption01.component';
+import { Caption02Component } from './caption02/caption02.component';
+import { Caption03Component } from './caption03/caption03.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { FooterComponent } from './footer/footer.component';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
+    Caption01Component,
+    Caption02Component,
+    Caption03Component,
   ],
   imports: [
     BrowserModule,
