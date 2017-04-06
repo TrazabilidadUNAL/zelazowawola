@@ -1,9 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
-  <ul>
-    <p>
-      id: {{ message?.id }}<br>
-      full name: {{ message?.first_name }} {{ message?.last_name }}<br>
-      username: {{ message?.username }}
-    </p>
-  </ul>
+  <h2>Basic Requests</h2>
+
+  <form #f="ngForm"
+        (ngSubmit)="getProducer1(f.value)">
+    <input type="text" id="inID" name="sky" ngModel>
+    <button type="submit">Submit </button>
+  </form>
+
+  <div *ngIf="loading">loading...</div>
+  <pre>{{data | json}}</pre>
 </body>
+</html>
