@@ -12,6 +12,8 @@ import { Caption01Component } from './caption01/caption01.component';
 import { Caption02Component } from './caption02/caption02.component';
 import { Caption03Component } from './caption03/caption03.component';
 import { ProducersComponent } from './producers/producers.component';
+import { WarehouseComponent } from './warehouse/warehouse.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ProducersComponent } from './producers/producers.component';
     Caption02Component,
     Caption03Component,
     ProducersComponent,
+    WarehouseComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
