@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProducersComponent } from './producers/producers.component';
 
 export const router: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'producers', component: ProducersComponent },
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
