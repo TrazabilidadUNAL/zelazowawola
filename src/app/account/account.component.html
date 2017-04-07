@@ -19,30 +19,28 @@
         <div id="producer" class="tab-pane fade">
           <h3>Producer Account</h3>
           <div class="form">
-            <form action="#" method="post">
+            <form  #f="ngForm" (ngSubmit)="postProducer(f.value)" >
               <div class="form-group">
-                <label for="usr">User:</label>
-                <input type="text" class="form-control" placeholder="User">
+                <label for="usr">Name:</label>
+                <input type="text" id="pName" name="pName" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="usr">Username:</label>
-                <input type="text" class="form-control" placeholder="Username">
+                <label for="usr">Last Name:</label>
+                <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" placeholder="Email">
+                <label for="email">Username:</label>
+                <input type="text" id="pUserame" name="pUserame" class="form-control" ngModel>
               </div>
               <div class="form-group">
                 <label for="pwd">Password:</label>
-    	          <input type="password" class="form-control" placeholder="Password">
-                <label for="pwd">Confirm Password:</label>
-    	          <input type="password" class="form-control" placeholder="Confirm Password">
+    	          <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel>
               </div>
               <div class="checkbox">
                 <label><input type="checkbox">Accept the Gretel Terms and Conditions</label>
               </div>
               <br>
-              <button type="submit" class="btn btn-default">Register Producer</button>
+                <button type="submit" class="btn btn-default">Register Producer</button>
             </form>
           </div>
         </div>
