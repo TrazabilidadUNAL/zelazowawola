@@ -11,24 +11,27 @@
 
       <div class="tab-content col-md-5">
         <div id="get" class="tab-pane fade in active">
-          <h3>Your Information</h3>
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="id">ID:</label>
-            <div class="col-sm-7">
-              <p class="form-control-static">your id</p>
-            </div>
-            <label class="control-label col-sm-3" for="usr">Name:</label>
-            <div class="col-sm-7">
-              <p class="form-control-static">your name</p>
-            </div>
-            <label class="control-label col-sm-3" for="usr">Username:</label>
-            <div class="col-sm-7">
-              <p class="form-control-static">your username</p>
-            </div>
-            <label class="control-label col-sm-3" for="email">Email:</label>
-            <div class="col-sm-7">
-              <p class="form-control-static">your@email.com</p>
-            </div>
+          <div class="form">
+              <form #f="ngForm" (ngSubmit)="getWarehouse(f.value)">
+                <input type="text" id="inputID1" name="GetWarehouse" ngModel>
+                <button type="submit">GET</button>
+                <pre>{{data | json}}</pre>
+                <h3>Your Information</h3>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="name">Name:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wName">your id</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="username">Username:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wUsername">your name</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="password">Password</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wPassword">your username</p>
+                  </div>
+                </div>
+              </form>
           </div>
         </div>
 
