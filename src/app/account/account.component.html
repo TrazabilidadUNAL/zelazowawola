@@ -21,19 +21,19 @@
           <div class="form">
             <form  #f="ngForm" (ngSubmit)="postProducer(f.value)" >
               <div class="form-group">
-                <label for="usr">Name:</label>
+                <label for="name">Name:</label>
                 <input type="text" id="pName" name="pName" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="usr">Last Name:</label>
+                <label for="last name">Last Name:</label>
                 <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="email">Username:</label>
+                <label for="username">Username:</label>
                 <input type="text" id="pUserame" name="pUserame" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="pwd">Password:</label>
+                <label for="password">Password:</label>
     	          <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel>
               </div>
               <div class="checkbox">
@@ -48,30 +48,24 @@
         <div id="warehouse" class="tap-pane fade">
           <h3>Warehouse Account</h3>
           <div class="form">
-            <form action="#" method="post">
+            <form  #w="ngForm" (ngSubmit)="postWarehouse(w.value)" >
               <div class="form-group">
-                <label for="usr">User:</label>
-                <input type="text" class="form-control" placeholder="User">
+                <label for="name">Name:</label>
+                <input type="text" id="wName" name="wName" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="usr">Username:</label>
-                <input type="text" class="form-control" placeholder="Username">
+                <label for="username">Username:</label>
+                <input type="text" id="wUserame" name="wUserame" class="form-control" ngModel>
               </div>
               <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-    	          <input type="password" class="form-control" placeholder="Password">
-                <label for="pwd">Confirm Password:</label>
-    	          <input type="password" class="form-control" placeholder="Confirm Password">
+                <label for="password">Password:</label>
+    	          <input type="password" id="wPassword" name="wPassword" class="form-control" ngModel>
               </div>
               <div class="checkbox">
                 <label><input type="checkbox">Accept the Gretel Terms and Conditions</label>
               </div>
               <br>
-              <button type="submit" class="btn btn-default">Register Warehouse</button>
+                <button type="submit" class="btn btn-default">Register Producer</button>
             </form>
           </div>
         </div>
