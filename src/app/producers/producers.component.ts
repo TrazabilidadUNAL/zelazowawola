@@ -1,7 +1,7 @@
-// Imports
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { Producer } from './producer';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -14,29 +14,24 @@ import 'rxjs/add/operator/catch';
 })
 export class ProducersComponent implements OnInit{
   data: Object;
-  show: boolean;
   constructor(public http: Http) {
   }
-  private commentsUrl = 'http://localhost:3000/v1/producers';
-  getProducer1(form: any): void {
-    var id = form["sky"];
-    this.show = true;
-    this.http.request(`${this.commentsUrl}/${id}`)
-      .subscribe((res: Response) => {
-        this.data = res.json();
-        this.show = false;
-      });
+  private producersUrl = 'http://localhost:3000/v1/producers';
+
+  getProducer(form: any): void {
+    const id = form['GetProducer'];
+    this.http.request(`${this.producersUrl}/${id}`)
+      .subscribe((res: Response) => this.data = res.json(), );
   }
 
-  /**
-  getProducer2(): void {
-    this.show = true;
-    this.http.request(`${this.producersUrl}`)
-      .subscribe((res: Response) => {
-        this.data = res.json();
-        this.show = false;
-      });
-  }**/
+  postProducer(): void {
+    const producer1 = new Producer('andres', 'forero', 'afforeroc', 'hshdjn43985');
+    const headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+    const options = new RequestOptions({ headers: headers });
+    this.http.post('${this.producersUrl}', JSON.stringify(producer1), options)
+      .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
   ngOnInit() {
   }

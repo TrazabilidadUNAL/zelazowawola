@@ -2,15 +2,25 @@
 <html>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
-  <h2>Basic Requests</h2>
-
+  <h2>getProducer</h2>
   <form #f="ngForm"
-        (ngSubmit)="getProducer1(f.value)">
-    <input type="text" id="inID" name="sky" ngModel>
-    <button type="submit">Submit </button>
+        (ngSubmit)="getProducer(f.value)">
+    <input type="text" id="inputID1" name="GetProducer" ngModel>
+    <button type="submit">GET</button>
   </form>
 
   <div *ngIf="loading">loading...</div>
   <pre>{{data | json}}</pre>
+
+  <h2>postProducer</h2>
+  <form #h="ngForm"
+        (ngSubmit)="postProducer()">
+    <button type="submit">POST</button>
+  </form>
+
+
+
+
+
 </body>
 </html>
