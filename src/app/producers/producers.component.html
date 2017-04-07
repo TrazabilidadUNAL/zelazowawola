@@ -1,26 +1,93 @@
-<!DOCTYPE html>
-<html>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
-  <h2>getProducer</h2>
-  <form #f="ngForm"
-        (ngSubmit)="getProducer(f.value)">
-    <input type="text" id="inputID1" name="GetProducer" ngModel>
-    <button type="submit">GET</button>
-  </form>
+<form class="form-horizontal" method="post">
+  <div class="container fill">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a data-toggle="pill" href="#get">Your Information</a></li>
+          <li><a data-toggle="pill" href="#put">Update Your Information</a></li>
+          <li><a data-toggle="pill" href="#delete">Delete Your Account</a></li>
+        </ul>
+      </div>
 
-  <div *ngIf="loading">loading...</div>
-  <pre>{{data | json}}</pre>
+      <div class="tab-content col-md-5">
+        <div id="get" class="tab-pane fade in active">
+          <div class="form">
+              <form #f="ngForm" (ngSubmit)="getProducer(f.value)">
+                <input type="text" id="inputID1" name="GetProducer" ngModel>
+                <button type="submit" class="btn btn-success">GET</button>
+                <h3>Your Information</h3>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="name">Name:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wName">{{data?.first_name}}</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="lastname">Last Name:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wLastname">{{data?.last_name}}</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="username">Username:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="wUsername">{{data?.username}}</p>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
 
-  <h2>postProducer</h2>
-  <form #h="ngForm"
-        (ngSubmit)="postProducer()">
-    <button type="submit">POST</button>
-  </form>
+        <div id="put" class="tab-pane fade">
+          <h3>Update Your Information</h3>
+          <div class="form">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="usr">Change User:</label>
+                <input type="text" class="form-control" placeholder="User">
+              </div>
+              <div class="form-group">
+                <label for="usr">Change Username:</label>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Old Password:</label>
+    	          <input type="password" class="form-control" placeholder="Password">
+                <label for="pwd">New Password:</label>
+    	          <input type="password" class="form-control" placeholder="New Password">
+                <label for="pwd">Confirm New Password:</label>
+    	          <input type="password" class="form-control" placeholder="Confirm New Password">
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox">Are you sure?</label>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-default">Confirm</button>
+            </form>
+          </div>
+        </div>
 
+        <div id="delete" class="tap-pane fade">
+          <h3>Delete Your Account</h3>
+          <div class="form">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="usr">User:</label>
+                <input type="text" class="form-control" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+    	          <input type="password" class="form-control" placeholder="Password">
+                <label for="pwd">Confirm Password:</label>
+    	          <input type="password" class="form-control" placeholder="Confirm Password">
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox">Are you sure?</label>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-default">Confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-
-
-
-</body>
-</html>
+      <div class="clearfix visible-lg"></div>
+    </div>
+  </div>
+</form>

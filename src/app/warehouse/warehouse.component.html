@@ -12,23 +12,31 @@
       <div class="tab-content col-md-5">
         <div id="get" class="tab-pane fade in active">
           <div class="form">
-              <form #f="ngForm" (ngSubmit)="getWarehouse(f.value)">
-                <input type="text" id="inputID1" name="GetWarehouse" ngModel>
-                <button type="submit">GET</button>
-                <pre>{{data | json}}</pre>
+              <form #f="ngForm" (ngSubmit)="getWarehousePlace(f.value); getWarehouse(f.value)">
+                <input type="text"  id="inputID1" name="GetWarehouse" ngModel>
+                <button type="submit" class="btn btn-success">GET</button>
                 <h3>Your Information</h3>
                 <div class="form-group">
                   <label class="control-label col-sm-3" for="name">Name:</label>
                   <div class="col-sm-7">
-                    <p class="form-control-static" name="wName">your id</p>
+                    <p class="form-control-static" name="wName">{{data?.name}}</p>
                   </div>
                   <label class="control-label col-sm-3" for="username">Username:</label>
                   <div class="col-sm-7">
-                    <p class="form-control-static" name="wUsername">your name</p>
+                    <p class="form-control-static" name="wUsername">{{data?.username}}</p>
                   </div>
-                  <label class="control-label col-sm-3" for="password">Password</label>
+
+                  <label class="control-label col-sm-3" for="tag">Tag:</label>
                   <div class="col-sm-7">
-                    <p class="form-control-static" name="wPassword">your username</p>
+                    <p class="form-control-static" name="tag">{{place?.tag}}</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="lat">Latitude:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="lat">{{place?.lat}}</p>
+                  </div>
+                  <label class="control-label col-sm-3" for="lon">Longitude:</label>
+                  <div class="col-sm-7">
+                    <p class="form-control-static" name="lon">{{place?.lon}}</p>
                   </div>
                 </div>
               </form>

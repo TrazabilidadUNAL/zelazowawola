@@ -13,13 +13,20 @@ import 'rxjs/add/operator/catch';
 export class WarehouseComponent implements OnInit {
 
   data: Object;
-
+  place: Object;
+  place01: Object;
   constructor(public http: Http) { }
 
   getWarehouse(form: any): void {
     const id = form['GetWarehouse'];
     this.http.request(`http://localhost:3000/v1/warehouses/${id}`)
       .subscribe((res: Response) => this.data = res.json());
+  }
+
+  getWarehousePlace(form: any): void {
+    const id = form['GetWarehouse'];
+    this.http.request(`http://localhost:3000/v1/warehouses/${id}/places/1`)
+      .subscribe((res: Response) => this.place= res.json()); 
   }
 
   ngOnInit() {
