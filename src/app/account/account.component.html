@@ -2,7 +2,7 @@
   <div class="container fill">
     <div class="row">
       <div class="col-md-6">
-        <h2 class="dark-grey">Terms and Conditions</h2>
+        <h2>Terms and Conditions</h2>
 				<p>
 					By registering you accept the Gretel Terms and Conditions
 				</p>
@@ -10,34 +10,34 @@
 					What kind of account do you want to create?
 				</p>
         <ul class="nav nav-pills">
-          <li><a data-toggle="pill" href="#producer">Producer Account</a></li>
+          <li class="active"><a data-toggle="pill" href="#producer">Producer Account</a></li>
           <li><a data-toggle="pill" href="#warehouse">Warehouse Account</a></li>
         </ul>
       </div>
 
       <div class="tab-content col-md-6">
-        <div id="producer" class="tab-pane fade">
+        <div id="producer" class="tab-pane fade in active">
           <h3>Producer Account</h3>
           <div class="form">
             <form  #f="ngForm" (ngSubmit)="postProducer(f.value)" >
               <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="pName" name="pName" class="form-control" ngModel>
+                <input type="text" id="pName" name="pName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
                 <label for="last name">Last Name:</label>
-                <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel>
+                <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="pUserame" name="pUserame" class="form-control" ngModel>
+                <input type="text" id="pUserame" name="pUserame" class="form-control" ngModel required>
               </div>
               <div class="form-group">
                 <label for="password">Password:</label>
-    	          <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel>
+    	          <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel required>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox">Accept the Gretel Terms and Conditions</label>
+                <label><input type="checkbox" required>Accept the Gretel Terms and Conditions</label>
               </div>
               <br>
                 <button type="submit" class="btn btn-default">Register Producer</button>
@@ -51,21 +51,21 @@
             <form  #w="ngForm" (ngSubmit)="postWarehouse(w.value)" >
               <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="wName" name="wName" class="form-control" ngModel>
+                <input type="text" id="wName" name="wName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="wUserame" name="wUserame" class="form-control" ngModel>
+                <input type="text" id="wUserame" name="wUserame" class="form-control" ngModel required>
               </div>
               <div class="form-group">
                 <label for="password">Password:</label>
-    	          <input type="password" id="wPassword" name="wPassword" class="form-control" ngModel>
+    	          <input type="password" id="wPassword" name="wPassword" class="form-control" ngModel required>
               </div>
               <div class="checkbox">
-                <label><input type="checkbox">Accept the Gretel Terms and Conditions</label>
+                <label><input type="checkbox" required>Accept the Gretel Terms and Conditions</label>
               </div>
               <br>
-                <button type="submit" class="btn btn-default">Register Producer</button>
+                <button type="submit" class="btn btn-default">Register Warehouse</button>
             </form>
           </div>
         </div>

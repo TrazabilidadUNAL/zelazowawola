@@ -45,10 +45,9 @@ export class AccountComponent implements OnInit {
     console.log(JSON.stringify(warehouse1));
     const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
     const options = new RequestOptions({headers: headers});
-    // this.http.post(`${this.producersUrl}`, JSON.stringify(producer1), options)
-    //   .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-    //   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    this.http.post('http://localhost:3000/v1/warehouses', JSON.stringify(warehouse1), {headers: headers})
+
+    this.http
+      .post('http://localhost:3000/v1/warehouses', JSON.stringify(warehouse1), {headers: headers})
       .map(res => res.json())
       .subscribe(
         data => console.log(data)
@@ -57,5 +56,5 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
 }

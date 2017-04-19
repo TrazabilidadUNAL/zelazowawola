@@ -1,102 +1,128 @@
-<form class="form-horizontal" method="post">
-  <div class="container fill">
-    <div class="row">
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a data-toggle="pill" href="#get">Your Information</a></li>
-          <li><a data-toggle="pill" href="#put">Update Your Information</a></li>
-          <li><a data-toggle="pill" href="#delete">Delete Your Account</a></li>
-        </ul>
-      </div>
-
-      <div class="tab-content col-md-5">
-        <div id="get" class="tab-pane fade in active">
-          <div class="form">
-              <form #f="ngForm" (ngSubmit)="getWarehousePlace(f.value); getWarehouse(f.value)">
-                <input type="text"  id="inputID1" name="GetWarehouse" ngModel>
-                <button type="submit" class="btn btn-success">GET</button>
-                <h3>Your Information</h3>
-                <div class="form-group">
-                  <label class="control-label col-sm-3" for="name">Name:</label>
-                  <div class="col-sm-7">
-                    <p class="form-control-static" name="wName">{{data?.name}}</p>
-                  </div>
-                  <label class="control-label col-sm-3" for="username">Username:</label>
-                  <div class="col-sm-7">
-                    <p class="form-control-static" name="wUsername">{{data?.username}}</p>
-                  </div>
-
-                  <label class="control-label col-sm-3" for="tag">Tag:</label>
-                  <div class="col-sm-7">
-                    <p class="form-control-static" name="tag">{{place?.tag}}</p>
-                  </div>
-                  <label class="control-label col-sm-3" for="lat">Latitude:</label>
-                  <div class="col-sm-7">
-                    <p class="form-control-static" name="lat">{{place?.lat}}</p>
-                  </div>
-                  <label class="control-label col-sm-3" for="lon">Longitude:</label>
-                  <div class="col-sm-7">
-                    <p class="form-control-static" name="lon">{{place?.lon}}</p>
-                  </div>
-                </div>
-              </form>
-          </div>
-        </div>
-
-        <div id="put" class="tab-pane fade">
-          <h3>Update Your Information</h3>
-          <div class="form">
-            <form action="#" method="post">
-              <div class="form-group">
-                <label for="usr">Change User:</label>
-                <input type="text" class="form-control" placeholder="User">
-              </div>
-              <div class="form-group">
-                <label for="usr">Change Username:</label>
-                <input type="text" class="form-control" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Old Password:</label>
-    	          <input type="password" class="form-control" placeholder="Password">
-                <label for="pwd">New Password:</label>
-    	          <input type="password" class="form-control" placeholder="New Password">
-                <label for="pwd">Confirm New Password:</label>
-    	          <input type="password" class="form-control" placeholder="Confirm New Password">
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox">Are you sure?</label>
-              </div>
-              <br>
-              <button type="submit" class="btn btn-default">Confirm</button>
-            </form>
-          </div>
-        </div>
-
-        <div id="delete" class="tap-pane fade">
-          <h3>Delete Your Account</h3>
-          <div class="form">
-            <form action="#" method="post">
-              <div class="form-group">
-                <label for="usr">User:</label>
-                <input type="text" class="form-control" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-    	          <input type="password" class="form-control" placeholder="Password">
-                <label for="pwd">Confirm Password:</label>
-    	          <input type="password" class="form-control" placeholder="Confirm Password">
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox">Are you sure?</label>
-              </div>
-              <br>
-              <button type="submit" class="btn btn-default">Confirm</button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="clearfix visible-lg"></div>
+<div class="container fill">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a data-toggle="pill" href="#get">Your Information</a></li>
+        <li><a data-toggle="pill" href="#put">Update Your Information</a></li>
+        <!-- <li><a data-toggle="pill" href="#places">Your Places</a></li> -->
+        <li><a data-toggle="pill" href="#delete">Delete Your Account</a></li>
+      </ul>
     </div>
+
+    <div class="tab-content col-md-5">
+      <div id="get" class="tab-pane fade in active">
+        <h3>Your Information</h3>
+        <div class="form">
+          <form #g="ngForm" (ngSubmit)="getWarehouse(g.value)">
+            <div class="form-group">
+              <label class="control-label" for="GetWarehouse">ID:</label>
+              <input type="text" id="inputGet" name="GetWarehouse" ngModel>
+              <button type="submit" class="btn btn-success">GET</button>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="wName">Name:</label>
+              <div class="col-sm-7">
+                <p class="form-control-static" name="wName">{{ware?.data.name}}</p>
+              </div>
+              <label class="control-label col-sm-3" for="wUsername">Username:</label>
+              <div class="col-sm-7">
+                <p class="form-control-static" name="wUsername">{{ware?.data.username}}</p>
+              </div>
+
+              <!-- <label class="control-label col-sm-3" for="tag">Tag:</label>
+              <div class="col-sm-7">
+                <p class="form-control-static" name="tag">{{place?.tag}}</p>
+              </div>
+              <label class="control-label col-sm-3" for="lat">Latitude:</label>
+              <div class="col-sm-7">
+                <p class="form-control-static" name="lat">{{place?.lat}}</p>
+              </div>
+              <label class="control-label col-sm-3" for="lon">Longitude:</label>
+              <div class="col-sm-7">
+                <p class="form-control-static" name="lon">{{place?.lon}}</p>
+              </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="put" class="tab-pane fade">
+        <h3>Update Your Information</h3>
+        <div class="form">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="usr">Change User:</label>
+              <input type="text" class="form-control" placeholder="User">
+            </div>
+            <div class="form-group">
+              <label for="usr">Change Username:</label>
+              <input type="text" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Old Password:</label>
+  	          <input type="password" class="form-control" placeholder="Password">
+              <label for="pwd">New Password:</label>
+  	          <input type="password" class="form-control" placeholder="New Password">
+              <label for="pwd">Confirm New Password:</label>
+  	          <input type="password" class="form-control" placeholder="Confirm New Password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" required>Are you sure?</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">Confirm</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- <div id="places" class="tap-pane fade">
+        <h3>Your Places</h3>
+        <div class="form">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="place">Place:</label>
+              <input type="text" class="form-control" placeholder="Name of Place">
+            </div>
+            <div class="form-group">
+              <label for="latit">Latitude:</label>
+              <input type="text" class="form-control" placeholder="Latitude">
+              <label for="long">Longitude:</label>
+              <input type="text" class="form-control" placeholder="Longitude">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox">Are you sure?</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">Confirm</button>
+          </form>
+        </div>
+      </div> -->
+
+      <div id="delete" class="tap-pane fade">
+        <h3>Delete Your Account</h3>
+        <div class="form">
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="usr">User:</label>
+              <input type="text" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+  	          <input type="password" class="form-control" placeholder="Password" required>
+              <label for="pwd">Confirm Password:</label>
+  	          <input type="password" class="form-control" placeholder="Confirm Password" required>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" required>Are you sure?</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-default">Confirm</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix visible-lg"></div>
   </div>
-</form>
+</div>

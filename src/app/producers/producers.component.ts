@@ -22,6 +22,7 @@ export class ProducersComponent implements OnInit {
     const id = form['GetProducer'];
     this.http.request(`http://localhost:3000/v1/producers/${id}`)
       .subscribe((res: Response) => this.data = res.json());
+      console.log(this.data);
   }
 
   postProducer(): void {

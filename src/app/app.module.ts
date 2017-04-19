@@ -14,6 +14,7 @@ import { Caption03Component } from './caption03/caption03.component';
 import { ProducersComponent } from './producers/producers.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
+import { PlaceComponent } from './place/place.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AccountComponent } from './account/account.component';
     Caption03Component,
     ProducersComponent,
     WarehouseComponent,
-    AccountComponent
+    AccountComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
