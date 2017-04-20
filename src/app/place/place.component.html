@@ -13,6 +13,7 @@
       <div id="getPlace" class="tab-pane fade in active">
         <h3>Your Places</h3>
         <div class="form">
+          <!--
           <form #g="ngForm" (ngSubmit)="getPlace(g.value)">
             <div class="form-group">
               <div class="form-group">
@@ -28,18 +29,38 @@
             <div class="form-group">
               <label class="control-label col-sm-3" for="tag">Tag:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="tag">{{place?.data.tag}}</p>
+                <p class="form-control-static" name="tag">{{place?.data.first_name}}</p>
               </div>
               <label class="control-label col-sm-3" for="lat">Latitude:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="lat">{{place?.data.lat}}</p>
+                <p class="form-control-static" name="lat">{{place?.data.last_name}}</p>
               </div>
               <label class="control-label col-sm-3" for="lon">Longitude:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="lon">{{place?.data.lon}}</p>
+                <p class="form-control-static" name="lon">{{place?.data.username}}</p>
               </div>
             </div>
           </form>
+          //-->
+          <form #f="ngForm" (ngSubmit)="getProducer(f.value)">
+              <input type="text" id="inputID1" name="GetProducer" ngModel>
+              <button type="submit" class="btn btn-success">GET</button>
+              <h3>Your Information</h3>
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="name">Name:</label>
+                <div class="col-sm-7">
+                  <p class="form-control-static" name="wName">{{data?.data.tag}}</p>
+                </div>
+                <label class="control-label col-sm-3" for="lastname">Last Name:</label>
+                <div class="col-sm-7">
+                  <p class="form-control-static" name="wLastname">{{data?.data.lat}}</p>
+                </div>
+                <label class="control-label col-sm-3" for="username">Username:</label>
+                <div class="col-sm-7">
+                  <p class="form-control-static" name="wUsername">{{data?.data.lon}}</p>
+                </div>
+              </div>
+            </form>
         </div>
       </div>
 
