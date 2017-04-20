@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Place } from './place';
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Place } from './product';
 
 @Component({
-  selector: 'app-place',
-  templateUrl: './place.component.html',
-  styleUrls: ['./place.component.css']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-
-export class PlaceComponent implements OnInit {
+export class ProductComponent implements OnInit {
   place: Object;
   data: Object;
 
@@ -50,7 +46,6 @@ export class PlaceComponent implements OnInit {
   deletePlace(form: any): void {
 
   }
-
   ngOnInit() {
   }
 

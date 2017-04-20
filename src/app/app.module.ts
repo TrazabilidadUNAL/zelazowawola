@@ -15,6 +15,7 @@ import { ProducersComponent } from './producers/producers.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PlaceComponent } from './place/place.component';
     ProducersComponent,
     WarehouseComponent,
     AccountComponent,
-    PlaceComponent
+    PlaceComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
