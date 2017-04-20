@@ -18,15 +18,28 @@ export class PlaceComponent implements OnInit {
   constructor(private http: Http) { }
 
   getPlace(form: any): void {
-    const idPrd = form['getProducer'];
-    const id = form['getPlace'];
+    const idPrd = form['igetProducer'];
+    const id = form['igetPlace'];
     this.http
-      .request(`http://localhost:3000/v1/producers/${idPrd}/places/${id}`)
+      .get(`http://localhost:3000/v1/producers/${idPrd}/places/${id}`)
       .subscribe((res: Response) => this.place = res.json());
   }
 
   postPlace(form: any): void {
-
+    const idPrd = form['postProducer'];
+    const tag = form['pTag'];
+    const lat = form['pLat'];
+    const lon = form['pLon'];
+    const newPlace = new Place(tag, lat, lon);
+    console.log(JSON.stringify(newPlace));
+    const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
+    const options = new RequestOptions({headers: headers});
+    this.http
+      .post(`http://localhost:3000/v1/producers/${idPrd}/places`, JSON.stringify(newPlace), {headers: headers})
+      .map(res => res.json())
+      .subscribe(
+        data => console.log(data)
+      );
   }
 
   putPlace(form: any): void {

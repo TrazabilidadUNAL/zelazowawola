@@ -2,26 +2,26 @@
   <div class="row">
     <div class="col-md-3">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#get">Your Places</a></li>
-        <li><a data-toggle="pill" href="#post">Create New Place</a></li>
-        <li><a data-toggle="pill" href="#put">Update Your Places</a></li>
-        <li><a data-toggle="pill" href="#delete">Delete Your Places</a></li>
+        <li class="active"><a data-toggle="pill" href="#getPlace">Your Places</a></li>
+        <li><a data-toggle="pill" href="#postPlace">Create New Place</a></li>
+        <li><a data-toggle="pill" href="#putPlace">Update Your Places</a></li>
+        <li><a data-toggle="pill" href="#deletePlace">Delete Your Places</a></li>
       </ul>
     </div>
 
     <div class="tab-content col-md-5">
-      <div id="get" class="tab-pane fade in active">
+      <div id="getPlace" class="tab-pane fade in active">
         <h3>Your Places</h3>
         <div class="form">
           <form #g="ngForm" (ngSubmit)="getPlace(g.value)">
             <div class="form-group">
               <div class="form-group">
-                <label class="control-label" for="getProducer">Producer ID:</label>
-                <input type="text" id="inputGetPrd" name="getProducer" ngModel>
+                <label class="control-label" for="igetProducer">Producer ID:</label>
+                <input type="text" id="inputGetPrd" name="igetProducer" ngModel>
               </div>
 
-              <label class="control-label" for="getPlace">Place ID:</label>
-              <input type="text" id="inputGet" name="getPlace" ngModel>
+              <label class="control-label" for="igetPlace">Place ID:</label>
+              <input type="text" id="inputGet" name="igetPlace" ngModel>
               <button type="submit" class="btn btn-success">GET</button>
             </div>
 
@@ -43,21 +43,25 @@
         </div>
       </div>
 
-      <div id="post" class="tab-pane fade">
+      <div id="postPlace" class="tab-pane fade">
         <h3>Create New Place</h3>
         <div class="form">
           <form #p="ngForm" (ngSubmit)="postPlace(p.value)">
+            <div class="form-group">
+              <label class="control-label" for="postProducer">Producer ID:</label>
+              <input type="text" id="inputGetPrd" name="postProducer" ngModel>
+            </div>
             <div class="form-group">
               <label for="pTag">Name (Tag):</label>
               <input type="text" id="pTag" name="pTag" class="form-control" ngModel required>
             </div>
             <div class="form-group">
               <label for="pLatitude">Latitude:</label>
-              <input type="text" id="pLat" name="pLatitude" class="form-control" ngModel required>
+              <input type="text" id="pLat" name="pLat" class="form-control" ngModel required>
             </div>
             <div class="form-group">
               <label for="pLongitude">Longitude:</label>
-              <input type="text" id="pLon" name="pLongitude" class="form-control" ngModel required>
+              <input type="text" id="pLon" name="pLon" class="form-control" ngModel required>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" required>Are you sure?</label>
@@ -68,7 +72,7 @@
         </div>
       </div>
 
-      <div id="put" class="tab-pane fade">
+      <div id="putPlace" class="tab-pane fade">
         <h3>Update Your Places</h3>
         <div class="form">
           <form #g="ngForm" (ngSubmit)="putPlace(g.value)">
@@ -94,7 +98,7 @@
         </div>
       </div>
 
-      <div id="delete" class="tab-pane fade">
+      <div id="deletePlace" class="tab-pane fade">
         <h3>Delete Your Places</h3>
         <div class="form">
           <form #d="ngForm" (ngSubmit)="deletePlace(d.value)">

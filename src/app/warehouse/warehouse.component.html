@@ -1,22 +1,23 @@
 <div class="container fill">
+  <h2>Warehouse</h2>
   <div class="row">
     <div class="col-md-3">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#get">Your Information</a></li>
-        <li><a data-toggle="pill" href="#put">Update Your Information</a></li>
-        <!-- <li><a data-toggle="pill" href="#places">Your Places</a></li> -->
-        <li><a data-toggle="pill" href="#delete">Delete Your Account</a></li>
+        <li class="active"><a data-toggle="pill" href="#getWarehouse">Your Information</a></li>
+        <li><a data-toggle="pill" href="#putWarehouse">Update Your Information</a></li>
+        <li><a data-toggle="pill" href="#placesWarehouse">Your Places</a></li>
+        <li><a data-toggle="pill" href="#deleteWarehouse">Delete Your Account</a></li>
       </ul>
     </div>
 
     <div class="tab-content col-md-5">
-      <div id="get" class="tab-pane fade in active">
+      <div id="getWarehouse" class="tab-pane fade in active">
         <h3>Your Information</h3>
         <div class="form">
           <form #g="ngForm" (ngSubmit)="getWarehouse(g.value)">
             <div class="form-group">
               <label class="control-label" for="GetWarehouse">ID:</label>
-              <input type="text" id="inputGet" name="GetWarehouse" ngModel>
+              <input type="text" id="inputGetWarehouse" name="GetWarehouse" ngModel>
               <button type="submit" class="btn btn-success">GET</button>
             </div>
 
@@ -32,22 +33,22 @@
 
               <!-- <label class="control-label col-sm-3" for="tag">Tag:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="tag">{{place?.tag}}</p>
+                <p class="form-control-static" name="tag">{{place?.data.tag}}</p>
               </div>
               <label class="control-label col-sm-3" for="lat">Latitude:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="lat">{{place?.lat}}</p>
+                <p class="form-control-static" name="lat">{{place?.data.lat}}</p>
               </div>
               <label class="control-label col-sm-3" for="lon">Longitude:</label>
               <div class="col-sm-7">
-                <p class="form-control-static" name="lon">{{place?.lon}}</p>
+                <p class="form-control-static" name="lon">{{place?.data.lon}}</p>
               </div> -->
             </div>
           </form>
         </div>
       </div>
 
-      <div id="put" class="tab-pane fade">
+      <div id="putWarehouse" class="tab-pane fade">
         <h3>Update Your Information</h3>
         <div class="form">
           <form action="#" method="post">
@@ -76,30 +77,11 @@
         </div>
       </div>
 
-      <!-- <div id="places" class="tap-pane fade">
-        <h3>Your Places</h3>
-        <div class="form">
-          <form action="#" method="post">
-            <div class="form-group">
-              <label for="place">Place:</label>
-              <input type="text" class="form-control" placeholder="Name of Place">
-            </div>
-            <div class="form-group">
-              <label for="latit">Latitude:</label>
-              <input type="text" class="form-control" placeholder="Latitude">
-              <label for="long">Longitude:</label>
-              <input type="text" class="form-control" placeholder="Longitude">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox">Are you sure?</label>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-default">Confirm</button>
-          </form>
-        </div>
-      </div> -->
+      <div id="placesWarehouse" class="tap-pane fade">
+        <app-place></app-place>
+      </div>
 
-      <div id="delete" class="tap-pane fade">
+      <div id="deleteWarehouse" class="tap-pane fade">
         <h3>Delete Your Account</h3>
         <div class="form">
           <form action="#" method="post">
