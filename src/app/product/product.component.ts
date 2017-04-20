@@ -10,7 +10,7 @@ import { Product } from './product';
 })
 export class ProductComponent implements OnInit {
   product: Object;
-  
+
 
   constructor(private http: Http) { }
 
@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
       console.log(this.product);
   }
 
-  postPlace(form: any): void {
+  postProduct(form: any): void {
     const idPrd = form['postPlace'];
     const tag = form['pName'];
     const newProduct = new Product("Fodosagan");
@@ -37,11 +37,11 @@ export class ProductComponent implements OnInit {
       );
   }
 
-  putPlace(form: any): void {
+  putProduct(form: any): void {
 
   }
 
-  deletePlace(form: any): void {
+  deleteProduct(form: any): void {
 
   }
   ngOnInit() {

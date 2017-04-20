@@ -2,22 +2,22 @@
   <div class="row">
     <div class="col-md-3">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#getPlace">Your Places</a></li>
-        <li><a data-toggle="pill" href="#postPlace">Create New Place</a></li>
-        <li><a data-toggle="pill" href="#putPlace">Update Your Places</a></li>
-        <li><a data-toggle="pill" href="#deletePlace">Delete Your Places</a></li>
+        <li class="active"><a data-toggle="pill" href="#getProduct">Your Products</a></li>
+        <li><a data-toggle="pill" href="#postProduct">Create New Product</a></li>
+        <li><a data-toggle="pill" href="#putProduct">Update Your Products</a></li>
+        <li><a data-toggle="pill" href="#deleteProduct">Delete Your Products</a></li>
       </ul>
     </div>
 
     <div class="tab-content col-md-5">
-      <div id="getPlace" class="tab-pane fade in active">
+      <div id="getProduct" class="tab-pane fade in active">
         <h3>Your Products</h3>
         <div class="form">
           <form #f="ngForm" (ngSubmit)="getProduct(f.value)">
               <label class="control-label" for="igetProduct">Product ID:</label>
               <input type="text" id="inputID1" name="GetProduct" ngModel>
               <button type="submit" class="btn btn-success">GET</button>
-              <h3>Your Information</h3>
+              <h3>Product Information</h3>
               <div class="form-group">
                 <label class="control-label col-sm-3" for="name">Name:</label>
                 <div class="col-sm-7">
@@ -28,14 +28,10 @@
         </div>
       </div>
 
-      <div id="postPlace" class="tab-pane fade">
+      <div id="postProduct" class="tab-pane fade">
         <h3>Create New Product</h3>
         <div class="form">
-          <form #p="ngForm" (ngSubmit)="postPlace(p.value)">
-            <div class="form-group">
-              <label class="control-label" for="postPlacetext">Product ID:</label>
-              <input type="text" id="inputGetPrd" name="postPlace" ngModel>
-            </div>
+          <form #p="ngForm" (ngSubmit)="postProduct(p.value)">
             <div class="form-group">
               <label for="pName">Name:</label>
               <input type="text" id="pName" name="pName" class="form-control" ngModel required>
@@ -49,22 +45,17 @@
         </div>
       </div>
 
-      <div id="putPlace" class="tab-pane fade">
+      <div id="putProduct" class="tab-pane fade">
         <h3>Update Your Products</h3>
         <div class="form">
-          <form #g="ngForm" (ngSubmit)="putPlace(g.value)">
-            <input type="text" id="inputGet" name="putPlace" ngModel>
+          <form #g="ngForm" (ngSubmit)="putProduct(g.value)">
             <div class="form-group">
-              <label for="gTag">Name:</label>
-              <input type="text" id="gTag" name="pTag" class="form-control" ngModel>
+              <label class="control-label" for="putProduct">Product ID:</label>
+              <input type="text" id="inputGet" name="putProduct" ngModel>
             </div>
             <div class="form-group">
-              <label for="gLatitude">Latitude:</label>
-              <input type="text" id="gLat" name="pLatitude" class="form-control" ngModel>
-            </div>
-            <div class="form-group">
-              <label for="gLongitude">Longitude:</label>
-              <input type="text" id="gLon" name="pLongitude" class="form-control" ngModel>
+              <label for="pName">Name:</label>
+              <input type="text" id="gName" name="pName" class="form-control" ngModel>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" required>Are you sure?</label>
@@ -75,12 +66,12 @@
         </div>
       </div>
 
-      <div id="deletePlace" class="tab-pane fade">
+      <div id="deleteProduct" class="tab-pane fade">
         <h3>Delete Your Products</h3>
         <div class="form">
-          <form #d="ngForm" (ngSubmit)="deletePlace(d.value)">
-            <label class="control-label" for="delPlace">Product ID:</label>
-            <input type="text" id="inputGet" name="delPlace" ngModel>
+          <form #d="ngForm" (ngSubmit)="deleteProduct(d.value)">
+            <label class="control-label" for="delProduct">Product ID:</label>
+            <input type="text" id="inputDel" name="delProduct" ngModel>
             <div class="checkbox">
               <label><input type="checkbox" required>Are you sure?</label>
             </div>

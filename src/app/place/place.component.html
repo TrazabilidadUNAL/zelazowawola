@@ -17,7 +17,7 @@
               <label class="control-label" for="igetProducer">Place ID:</label>
               <input type="text" id="inputID1" name="GetPlace" ngModel>
               <button type="submit" class="btn btn-success">GET</button>
-              <h3>Your Information</h3>
+              <h3>Place Information</h3>
               <div class="form-group">
                 <label class="control-label col-sm-3" for="name">Tag:</label>
                 <div class="col-sm-7">
@@ -41,8 +41,8 @@
         <div class="form">
           <form #p="ngForm" (ngSubmit)="postPlace(p.value)">
             <div class="form-group">
-              <label class="control-label" for="postPlacetext">Producer ID:</label>
-              <input type="text" id="inputGetPrd" name="postPlace" ngModel>
+              <label class="control-label" for="postPlace">Producer ID:</label>
+              <input type="text" id="inputPost" name="postPlace" ngModel>
             </div>
             <div class="form-group">
               <label for="pTag">Name (Tag):</label>
@@ -69,7 +69,11 @@
         <h3>Update Your Places</h3>
         <div class="form">
           <form #g="ngForm" (ngSubmit)="putPlace(g.value)">
-            <input type="text" id="inputGet" name="putPlace" ngModel>
+            <div class="form-group">
+              <label class="control-label" for="putPlace">Place ID:</label>
+              <input type="text" id="inputPut" name="putPlace" ngModel>
+            </div>
+
             <div class="form-group">
               <label for="gTag">Name (Tag):</label>
               <input type="text" id="gTag" name="pTag" class="form-control" ngModel>
