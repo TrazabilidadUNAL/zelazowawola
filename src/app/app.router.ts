@@ -17,7 +17,7 @@ export const router: Routes = [
   { path: 'warehouse', component: WarehouseComponent },
   { path: 'account', component: AccountComponent },
   { path: 'place', component: PlaceComponent },
-  { path: 'product', component: PlaceComponent }
+  { path: 'product', component: ProductComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

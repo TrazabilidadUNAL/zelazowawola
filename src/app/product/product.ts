@@ -1,7 +1,5 @@
-export class Place {
+export class Product {
   constructor(
-    public tag: string,
-    public lat: string,
-    public lon: string,
+    public name: string
   ) {}
 }

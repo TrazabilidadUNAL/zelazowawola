@@ -14,7 +14,6 @@ import 'rxjs/add/operator/catch';
 
 export class PlaceComponent implements OnInit {
   place: Object;
-  data: Object;
 
   constructor(private http: Http) { }
 
@@ -22,8 +21,8 @@ export class PlaceComponent implements OnInit {
   getPlace(form: any): void {
     const id = form['GetPlace'];
     this.http.get(`http://localhost:3000/v1/producers/1/places/${id}`)
-      .subscribe((res: Response) => this.data = res.json());
-      console.log(this.data);
+      .subscribe((res: Response) => this.place = res.json());
+      console.log(this.place);
   }
 
   postPlace(form: any): void {
