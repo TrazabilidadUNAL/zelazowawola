@@ -3,16 +3,12 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import {Producer} from './producer';
 
-// Import RxJs required methods
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
 @Component({
-  selector: 'app-producers',
-  templateUrl: './producers.component.html',
-  styleUrls: ['./producers.component.css']
+  selector: 'app-producer',
+  templateUrl: './producer.component.html',
+  styleUrls: ['./producer.component.css']
 })
-export class ProducersComponent implements OnInit {
+export class ProducerComponent implements OnInit {
   data: Object;
 
   constructor(public http: Http) {
@@ -21,8 +17,8 @@ export class ProducersComponent implements OnInit {
   getProducer(form: any): void {
     const id = form['GetProducer'];
     this.http.get(`http://localhost:3000/v1/producers/${id}`)
-      .subscribe((res: Response) => this.data = res.json());
-      console.log(this.data);
+        .subscribe((res: Response) => this.data = res.json());
+    console.log(this.data);
   }
 
   postProducer(): void {
@@ -34,10 +30,10 @@ export class ProducersComponent implements OnInit {
     //   .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
     //   .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     this.http.post('http://localhost:3000/v1/producers', JSON.stringify(producer1), {headers: headers})
-      .map(res => res.json())
-      .subscribe(
-        data => console.log(data)
-      );
+        .map(res => res.json())
+        .subscribe(
+            data => console.log(data)
+        );
   }
 
   ngOnInit() {
