@@ -14,26 +14,26 @@
           <li><a data-toggle="pill" href="#warehouse">Warehouse Account</a></li>
         </ul>
       </div>
-
+      <!-- POST PRODUCER -->
       <div class="tab-content col-md-6">
         <div id="producer" class="tab-pane fade in active">
           <h3>Producer Account</h3>
           <div class="form">
-            <form  #f="ngForm" (ngSubmit)="postProducer(f.value)" >
+            <form  #postProducerNGForm="ngForm" (ngSubmit)="postProducer(postProducerNGForm.value)" >
               <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="pName" name="pName" class="form-control" ngModel required>
+                <label>First Name:</label>
+                <input type="text" id="pFirstName" name="pFirstName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
-                <label for="last name">Last Name:</label>
+                <label>Last Name:</label>
                 <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="pUserame" name="pUserame" class="form-control" ngModel required>
+                <label>Username:</label>
+                <input type="text" id="pUsername" name="pUsername" class="form-control" ngModel required>
               </div>
               <div class="form-group">
-                <label for="password">Password:</label>
+                <label>Password:</label>
     	          <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel required>
               </div>
               <div class="checkbox">
@@ -44,21 +44,21 @@
             </form>
           </div>
         </div>
-
+        <!-- POST WAREHOUSE -->
         <div id="warehouse" class="tap-pane fade">
           <h3>Warehouse Account</h3>
           <div class="form">
-            <form  #w="ngForm" (ngSubmit)="postWarehouse(w.value)" >
+            <form  #postWarehouseNGForm="ngForm" (ngSubmit)="postWarehouse(postWarehouseNGForm.value)" >
               <div class="form-group">
-                <label for="name">Name:</label>
+                <label>Name:</label>
                 <input type="text" id="wName" name="wName" class="form-control" ngModel required>
               </div>
               <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="wUserame" name="wUserame" class="form-control" ngModel required>
+                <label>Username:</label>
+                <input type="text" id="wUsername" name="wUsername" class="form-control" ngModel required>
               </div>
               <div class="form-group">
-                <label for="password">Password:</label>
+                <label>Password:</label>
     	          <input type="password" id="wPassword" name="wPassword" class="form-control" ngModel required>
               </div>
               <div class="checkbox">
