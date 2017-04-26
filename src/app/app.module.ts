@@ -8,9 +8,12 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { Caption01Component } from './caption01/caption01.component';
-import { Caption02Component } from './caption02/caption02.component';
-import { Caption03Component } from './caption03/caption03.component';
+import { ProducerComponent } from './producer/producer.component';
+import { WarehouseComponent } from './warehouse/warehouse.component';
+import { AccountComponent } from './account/account.component';
+import { PlaceComponent } from './place/place.component';
+import { ProductComponent } from './product/product.component';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +22,11 @@ import { Caption03Component } from './caption03/caption03.component';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    Caption01Component,
-    Caption02Component,
-    Caption03Component,
+    ProducerComponent,
+    WarehouseComponent,
+    AccountComponent,
+    PlaceComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
