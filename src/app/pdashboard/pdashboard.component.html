@@ -1,0 +1,38 @@
+<h1>Producer Dashboard</h1>
+<div class="container fill">
+  <form #getNGForm="ngForm" (ngSubmit)="getProducerPlaces(getNGForm.value)">
+    <input type="text" id="inputID1" name="GetProducer" ngModel>
+    <button type="submit" class="btn btn-success">GET</button>
+  </form>
+  <!-- dProPlaces SOLO FORMATO JSON
+  <div *ngIf="loading">loading...</div>
+  <pre>{{dProPlaces?.data | json}}</pre>
+   -->
+</div>
+
+<!-- SELECTOR DE PLACES
+<div class="form-group">
+  <label for="power">Power</label>
+  <select class="form-control" id="power" required>
+    <option *ngFor="let p of dProPlaces?.data" [value]="p.tag">{{p.tag}}</option>
+  </select>
+</div>
+-->
+
+<h2>My Places</h2>
+<ul class="places">
+  <li *ngFor="let place of dProPlaces?.data"
+      [class.selected]="place === selectedPlace"
+      (click)="onSelect(place)">
+    <span>{{place.tag}}</span>
+  </li>
+</ul>
+
+
+<div *ngIf="selectedPlace">
+  <h2>{{selectedPlace.tag}}</h2>
+  <div><label>Nombre: </label> {{selectedPlace.tag}}</div>
+  <div><label>Latitud: </label> {{selectedPlace.lat}}</div>
+  <div><label>Longitud: </label> {{selectedPlace.lon}}</div>
+</div>
+

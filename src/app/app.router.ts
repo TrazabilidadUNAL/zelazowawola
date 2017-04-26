@@ -8,6 +8,7 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
+import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
 export const router: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ export const router: Routes = [
   { path: 'warehouse', component: WarehouseComponent },
   { path: 'account', component: AccountComponent },
   { path: 'place', component: PlaceComponent },
-  { path: 'product', component: ProductComponent }
+  { path: 'product', component: ProductComponent },
+  { path: 'pdashboard', component: PdashboardComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

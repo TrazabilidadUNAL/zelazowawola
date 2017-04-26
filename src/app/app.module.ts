@@ -13,7 +13,7 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
-
+import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { ProductComponent } from './product/product.component';
     WarehouseComponent,
     AccountComponent,
     PlaceComponent,
-    ProductComponent
+    ProductComponent,
+    PdashboardComponent,
   ],
   imports: [
     BrowserModule,
