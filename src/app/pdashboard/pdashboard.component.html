@@ -1,10 +1,13 @@
 <h1>Producer Dashboard</h1>
 <div class="container fill">
-  <form #getNGForm="ngForm" (ngSubmit)="getProducerPlaces(getNGForm.value)">
-    <input type="text" id="inputID1" name="GetProducer" ngModel>
+  <!-- GET FORM
+  <form #getNGForm="ngForm" (ngSubmit)="getProducerPP(getNGForm.value)">
+    <input type="text" id="inputID1" name="GetProducerPlaces" ngModel>
     <button type="submit" class="btn btn-success">GET</button>
   </form>
-  <!-- dProPlaces SOLO FORMATO JSON
+  -->
+
+  <!-- oProPlaces SOLO FORMATO JSON
   <div *ngIf="loading">loading...</div>
   <pre>{{dProPlaces?.data | json}}</pre>
    -->
@@ -19,16 +22,18 @@
 </div>
 -->
 <!-- PLACES LIST -->
+<!--
 <h2>My Places</h2>
 <ul class="places">
-  <li *ngFor="let p of dProPlaces?.data"
+  <li *ngFor="let p of oProPlaces?.data"
       [class.selected]="p === selectedPlace"
       (click)="onSelect(p)">
     <span>{{p.tag}}</span>
   </li>
 </ul>
+-->
 
-<!-- SELECT PLACE -->
+<!-- PLACES -->
 <div class="container">
   <div class="row">
     <!--MAP VIEW-->
@@ -39,14 +44,47 @@
         </sebm-google-map>
       </div>
     </div>
-    <!--PLACE DESCRIPTION-->
-    <div class="col-sm-6">
+    <!-- MY PLACES -->
+    <div class="col-sm-3">
+      <h2>My Places</h2>
+      <ul class="places">
+        <li *ngFor="let pl of oProPlaces?.data"
+            [class.selected]="pl === selectedPlace"
+            (click)="onSelectPL(pl)">
+          <span>{{pl.tag}}</span>
+        </li>
+      </ul>
+    </div>
+    <!-- DESCRIPTION'S PLACE -->
+    <div class="col-sm-3">
+      <h2>Place's Description</h2>
       <div *ngIf="selectedPlace">
         <div class="border-place">
-          <h2>{{selectedPlace.tag}}</h2>
+          <p>{{selectedPlace.tag}}</p>
           <p>{{selectedPlace.lat}}, {{selectedPlace.lon}}</p>
         </div>
       </div>
+    </div>
+  </div>
+</div><br>
+
+<!-- MY PRODUCTS -->
+<div class="col-sm-3">
+  <h2>My Products</h2>
+  <ul class="products">
+    <li *ngFor="let pr of oProProducts?.data"
+        [class.selected]="pr === selectedProduct"
+        (click)="onSelectPR(pr)">
+      <span>{{pr.name}}</span>
+    </li>
+  </ul>
+</div>
+<!-- PLACE DESCRIPTION -->
+<div class="col-sm-3">
+  <h2>Product's Description</h2>
+  <div *ngIf="selectedProduct">
+    <div class="border-place">
+      <p>{{selectedProduct.name}}</p>
     </div>
   </div>
 </div>

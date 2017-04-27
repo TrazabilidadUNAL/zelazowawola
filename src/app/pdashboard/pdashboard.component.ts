@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Place } from './place2';
+import { Product } from './product2';
 
 @Component({
   selector: 'app-pdashboard',
@@ -8,44 +9,62 @@ import { Place } from './place2';
   styleUrls: ['./pdashboard.component.css']
 })
 export class PdashboardComponent implements OnInit {
-  //VARS FOR MAPS
-  lat: number = 0.0;
-  lng: number = 0.0;
-
-  //PLACES LIST
-  PLACES: Place[] = [
-    { id: 1, tag: "Place Nro1", lat: 1.1, lon: 2.1 },
-    { id: 2, tag: "Place Nro2", lat: 1.2, lon: 2.2 },
-    { id: 3, tag: "Place Nro3", lat: 1.3, lon: 2.3 },
-    { id: 4, tag: "Place Nro4", lat: 1.4, lon: 2.4 },
-    { id: 5, tag: "Place Nro5", lat: 1.5, lon: 2.5 },
-  ];
-
-  //P1: Place = { id: 1, tag: "Place Nro", lat: 1.1, lon: 2.1 };
-
-  //GET PLACES OF PRODUCER
-  dProPlaces: Object;
-  urlProPlaces: string = 'http://localhost:3000/v1/producers';
+  //DECLARATIONS
+  urlBase: string = 'http://localhost:3000/v1';
+  lat: number;
+  lng: number;
+  nameProduct: string;
+  oProPlaces: Object;
+  oProProducts: Object;
 
   constructor(public http: Http) {}
 
-  getProducerPlaces(form: any): void {
-    const tag = form['GetProducer'];
+  //GET PRODUCER PP
+  getProducerPP(): void {
+    //const tag = form['GetProducerPlaces'];
+    const tag = Math.floor(Math.random() * (1500 - 0 + 1)) + 0;
 
-    this.http.get(`${this.urlProPlaces}/${tag}/places`)
-      .subscribe((res: Response) => this.dProPlaces = res.json());
-    console.log(this.dProPlaces);
+    //PLACES
+    this.http.get(`${this.urlBase}/producers/${tag}/places`)
+      .subscribe((res: Response) => this.oProPlaces = res.json());
+    console.log(this.oProPlaces);
+
+    //PRODUCTS
+    this.http.get(`${this.urlBase}/producers/${tag}/products`)
+        .subscribe((res: Response) => this.oProProducts = res.json());
+    console.log(this.oProProducts);
   }
 
-  //SHOW DEMO PLACES
+  //GET CROPS
+  /*
+  getCrops(form: any): void {
+    const tag = Math.floor(Math.random() * (1500 - 0 + 1)) + 0;
+
+    this.http.get(`${this.urlBase}/crops/${tag}`)
+        .subscribe((res: Response) => this.dCrops = res.json());
+    console.log(this.dCrops);
+  }*/
+
+  //SELECTED PLACE
   selectedPlace: Place;
-  onSelect(place: Place): void {
+  onSelectPL(place: Place): void {
+    //SHOW INFO PLACE
     this.selectedPlace = place;
     this.lat = place.lat;
     this.lng = place.lon;
   }
 
-  ngOnInit() {
+  //SELECTED PRODUCT
+  selectedProduct: Product;
+  onSelectPR(product: Product): void {
+    //SHOW INFO PLACE
+    this.selectedProduct = product;
+    this.nameProduct = product.name;
   }
+
+  ngOnInit() {
+    this.getProducerPP();
+  }
+
 
 }
