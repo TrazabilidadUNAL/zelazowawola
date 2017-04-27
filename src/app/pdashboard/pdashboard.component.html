@@ -18,21 +18,38 @@
   </select>
 </div>
 -->
-
+<!-- PLACES LIST -->
 <h2>My Places</h2>
 <ul class="places">
-  <li *ngFor="let place of dProPlaces?.data"
-      [class.selected]="place === selectedPlace"
-      (click)="onSelect(place)">
-    <span>{{place.tag}}</span>
+  <li *ngFor="let p of dProPlaces?.data"
+      [class.selected]="p === selectedPlace"
+      (click)="onSelect(p)">
+    <span>{{p.tag}}</span>
   </li>
 </ul>
 
-
-<div *ngIf="selectedPlace">
-  <h2>{{selectedPlace.tag}}</h2>
-  <div><label>Nombre: </label> {{selectedPlace.tag}}</div>
-  <div><label>Latitud: </label> {{selectedPlace.lat}}</div>
-  <div><label>Longitud: </label> {{selectedPlace.lon}}</div>
+<!-- SELECT PLACE -->
+<div class="container">
+  <div class="row">
+    <!--MAP VIEW-->
+    <div class="col-sm-6">
+      <div class="border-map">
+        <sebm-google-map [latitude]="lat" [longitude]="lng">
+          <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
+    </div>
+    <!--PLACE DESCRIPTION-->
+    <div class="col-sm-6">
+      <div *ngIf="selectedPlace">
+        <div class="border-place">
+          <h2>{{selectedPlace.tag}}</h2>
+          <p>{{selectedPlace.lat}}, {{selectedPlace.lon}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 

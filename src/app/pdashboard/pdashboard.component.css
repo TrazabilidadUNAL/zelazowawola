@@ -45,3 +45,23 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
 }
+
+.sebm-google-map-container {
+    height: 300px;
+}
+
+.border-map{
+    border-style: solid;
+    border-color: #ffffff ;
+    margin-top: 10px;
+    outline-style: outset;
+    outline-color: #ff3300 ;
+}
+
+.border-place{
+    border-style: solid;
+    border-color: #ffffff ;
+    margin-top: 10px;
+    outline-style: outset;
+    outline-color: #ff3300 ;
+}

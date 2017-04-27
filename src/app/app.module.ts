@@ -15,6 +15,8 @@ import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,10 @@ import { PdashboardComponent } from './pdashboard/pdashboard.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes
+    routes,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCC4lO1PjOC9xzRaOK86FJoht6VBFYcsB8'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

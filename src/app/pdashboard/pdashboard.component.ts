@@ -8,6 +8,9 @@ import { Place } from './place2';
   styleUrls: ['./pdashboard.component.css']
 })
 export class PdashboardComponent implements OnInit {
+  //VARS FOR MAPS
+  lat: number = 0.0;
+  lng: number = 0.0;
 
   //PLACES LIST
   PLACES: Place[] = [
@@ -38,6 +41,8 @@ export class PdashboardComponent implements OnInit {
   selectedPlace: Place;
   onSelect(place: Place): void {
     this.selectedPlace = place;
+    this.lat = place.lat;
+    this.lng = place.lon;
   }
 
   ngOnInit() {
