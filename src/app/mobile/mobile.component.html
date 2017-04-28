@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Welcome to gretel!</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <img class = "image-borders"src="http://norfolkvegbox.com/themestatic/uploads/2014/12/marispiper.jpg" alt="graph 01">
+    </div>
+    <div class="col-sm-6">
+      <h2>Potato</h2>
+      <p>This is a product that grows in places with cold weathers and is really tasty, if well prepared,
+        cause some people really don't know whats up when it comes to cooking, like come on guys you can make a
+        good stew with potatoes, why bother doing more complicated and awful stuff.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container block">
+  <div class="page-header">
+    <h2 class="centered-text ">
+      This is where your potatoes came from
+    </h2>
+  </div>
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+  
+  <div class="border-map">
+  <sebm-google-map [latitude]="lat" [longitude]="lng">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  </sebm-google-map>
+  </div>
+
+
+  <form #getRForm="ngForm" (ngSubmit)="getRoute(getRForm.value)">
+    <input type="text" id="inputID1" name="GetRoute" ngModel>
+    <button type="submit" class="btn btn-success">GET</button>
+  </form>
+  <div *ngIf="loading">loading...</div>
+  <pre>{{dRoute?.data.route_logs | json}}</pre>
+  
+  <!--
+  <h2>Routes</h2>
+      <ul class="routes">
+        <li *ngFor="let ro of dRoute?.data"
+            [class.selected]="ro === selectedRoute"
+            (click)="onSelectRo(ro)">
+          <span>{{ro.tag}}</span>
+        </li>
+      </ul>
+  //-->
+  <h3 class="centered-text">Graph of humidity vs time</h3>
+  <img class = "image-borders"src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 01">
+  <h3 class="centered-text">Graph of temperature vs time</h3>
+  <img class = "image-borders" src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 02">
+</div>

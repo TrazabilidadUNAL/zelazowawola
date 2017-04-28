@@ -39,6 +39,10 @@ export class PdashboardComponent implements OnInit {
         .subscribe(
             data => console.log(data)
         );
+    //REFRESH PLACES
+    this.http.get(`${this.urlBase}/producers/${tag}/places`)
+      .subscribe((res: Response) => this.oPlaces = res.json());
+    console.log(this.oPlaces);
   }
 
   //POST PRODUCT
@@ -68,7 +72,7 @@ export class PdashboardComponent implements OnInit {
     this.http.get(`${this.urlBase}/producers/${tag}/places`)
       .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
-    
+
     //PRODUCTS
     this.http.get(`${this.urlBase}/producers/${tag}/products`)
         .subscribe((res: Response) => this.oProducts = res.json());

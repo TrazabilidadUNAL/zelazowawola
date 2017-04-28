@@ -13,9 +13,10 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
+import { MobileComponent } from './mobile/mobile.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
-import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     AccountComponent,
     PlaceComponent,
     ProductComponent,
-    PdashboardComponent,
+    MobileComponent,
+    PdashboardComponent
   ],
   imports: [
     BrowserModule,

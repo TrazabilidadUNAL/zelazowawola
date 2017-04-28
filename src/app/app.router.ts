@@ -8,6 +8,7 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
+import { MobileComponent } from './mobile/mobile.component';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
 export const router: Routes = [
@@ -19,6 +20,7 @@ export const router: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'place', component: PlaceComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'mobile', component: MobileComponent },
   { path: 'pdashboard', component: PdashboardComponent }
 ];
 
