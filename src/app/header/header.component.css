@@ -2,6 +2,10 @@
 
 .navbar-brand{
   font-family: 'Pacifico', cursive;
-	font-size: 28px !important;
+	font-size: 43px !important;
+  text-shadow:
+   -1px -1px 0 #f2981f,
+    1px -1px 0 #f2981f,
+   -1px 1px 0 #f2981f,
+    1px 1px 0 #f2981f;
 }
-
