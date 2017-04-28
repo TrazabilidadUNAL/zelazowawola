@@ -7,87 +7,110 @@
   </form>
   -->
 
-  <!-- oProPlaces SOLO FORMATO JSON
+  <!-- PURE JSON
   <div *ngIf="loading">loading...</div>
   <pre>{{dProPlaces?.data | json}}</pre>
    -->
 </div>
 
-<!-- SELECTOR DE PLACES
-<div class="form-group">
-  <label for="power">Power</label>
-  <select class="form-control" id="power" required>
-    <option *ngFor="let p of dProPlaces?.data" [value]="p.tag">{{p.tag}}</option>
-  </select>
-</div>
--->
-<!-- PLACES LIST -->
-<!--
-<h2>My Places</h2>
-<ul class="places">
-  <li *ngFor="let p of oProPlaces?.data"
-      [class.selected]="p === selectedPlace"
-      (click)="onSelect(p)">
-    <span>{{p.tag}}</span>
-  </li>
-</ul>
--->
-
 <!-- PLACES -->
 <div class="container">
   <div class="row">
-    <!--MAP VIEW-->
-    <div class="col-sm-6">
-      <div class="border-map">
-        <sebm-google-map [latitude]="lat" [longitude]="lng">
-          <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-        </sebm-google-map>
+    <!-- POST PLACE -->
+    <div class="col-sm-3">
+      <h3>A New Place</h3>
+      <div class="form">
+        <form #placeNGForm="ngForm" (ngSubmit)="postPlace(placeNGForm.value)">
+          <div class="form-group">
+            <label for="pTag">Tag:</label>
+            <input type="text" id="pTag" name="pTag" class="form-control" ngModel required>
+            <label>Latitude:</label>
+            <input type="text" id="pLat" name="pLat" class="form-control" ngModel required>
+            <label>Longitude:</label>
+            <input type="text" id="pLon" name="pLon" class="form-control" ngModel required>
+          </div>
+          <button type="submit" class="btn btn-success">Create</button>
+        </form>
       </div>
     </div>
-    <!-- MY PLACES -->
+    <!-- GET PLACES -->
     <div class="col-sm-3">
-      <h2>My Places</h2>
+      <h2>Places</h2>
+      <button (click)="refresh1()">Refresh</button>
       <ul class="places">
-        <li *ngFor="let pl of oProPlaces?.data"
+        <li *ngFor="let pl of oPlaces?.data"
             [class.selected]="pl === selectedPlace"
             (click)="onSelectPL(pl)">
-          <span>{{pl.tag}}</span>
+          <span class="badge">{{pl.tag}}</span> {{pl.lat}}<br>{{pl.lon}}
         </li>
       </ul>
     </div>
-    <!-- DESCRIPTION'S PLACE -->
-    <div class="col-sm-3">
+
+    <!-- SELECT PLACE
+    <div class="col-xs-3">
       <h2>Place's Description</h2>
       <div *ngIf="selectedPlace">
         <div class="border-place">
           <p>{{selectedPlace.tag}}</p>
-          <p>{{selectedPlace.lat}}, {{selectedPlace.lon}}</p>
+          <p>Latitude: {{selectedPlace.lat}}</p>
+          <p>Longitude: {{selectedPlace.lon}}</p>
         </div>
       </div>
     </div>
-  </div>
-</div><br>
-
-<!-- MY PRODUCTS -->
-<div class="col-sm-3">
-  <h2>My Products</h2>
-  <ul class="products">
-    <li *ngFor="let pr of oProProducts?.data"
-        [class.selected]="pr === selectedProduct"
-        (click)="onSelectPR(pr)">
-      <span>{{pr.name}}</span>
-    </li>
-  </ul>
-</div>
-<!-- PLACE DESCRIPTION -->
-<div class="col-sm-3">
-  <h2>Product's Description</h2>
-  <div *ngIf="selectedProduct">
-    <div class="border-place">
-      <p>{{selectedProduct.name}}</p>
+    -->
+    <!-- MAP VIEW -->
+    <h2>Map</h2>
+    <div class="col-sm-6">
+      <div class="border-map">
+        <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+          <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [label]="'M'" ></sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
     </div>
   </div>
 </div>
+<br>
 
+<!-- PRODUCTS -->
+<div class="container">
+  <div class="row">
 
+    <!-- POST PRODUCT -->
+    <div class="col-sm-3">
+      <h3>A New Product</h3>
+      <div class="form">
+        <form #productNGForm="ngForm" (ngSubmit)="postProduct(productNGForm.value)">
+          <div class="form-group">
+            <label for="pName">Name:</label>
+            <input type="text" id="pName" name="pName" class="form-control" ngModel required>
+          </div>
+          <button type="submit" class="btn btn-success">Create</button>
+        </form>
+      </div>
+    </div>
 
+    <!-- GET PRODUCTS -->
+    <div class="col-sm-3">
+      <h2>Products</h2>
+      <button (click)="refresh1()">Refresh</button>
+      <ul class="products">
+        <li *ngFor="let pr of oProducts?.data"
+            [class.selected]="pr === selectedProduct"
+            (click)="onSelectPR(pr)">
+          <span class="badge">{{pr.id}}</span> {{pr.name}}
+        </li>
+      </ul>
+    </div>
+
+    <!-- SELECT PRODUCT -->
+    <div class="col-sm-6">
+      <h2>Product's Description</h2>
+      <div *ngIf="selectedProduct">
+        <div class="border-place">
+          <p>Name: {{selectedProduct.name}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
