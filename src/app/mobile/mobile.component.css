@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.centered-text{
+  text-align : center;
+}
+
+.border-map{
+  border-style: solid;
+  border-color: #ffffff;
+	margin-top: 10px;
+	outline-style: outset;
+  outline-color: #ff3300;
+}
+
+.bc-color{
+  background: #ff3300;
+}
+
+.cont-color{
+  background: #fff0e6;
+}
+
+.text-color{
+  color: #000000;
+}
+
+.navbar-header {
+    float: left;
+    padding: 25px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+  float:none;
+  font-size: 200%;
+  font-family: 'Pacifico', cursive;
+	font-size: 28px !important;
+}
+
+.block {
+    content:' ';
+    display:block;
+    border:2px solid #ffc299;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.image-borders {
+  border-style: solid;
+  border-color: #ffffff;
+	outline-style: outset;
+  outline-color: #ff3300;
+
+  height: 400px;
+  width: 100%;
+  padding: 10px;
+  display: block;
+}
+
+.sebm-google-map-container {
+  height: 300px;
+}
+

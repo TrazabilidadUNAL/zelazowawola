@@ -13,6 +13,9 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { AccountComponent } from './account/account.component';
 import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
+import { MobileComponent } from './mobile/mobile.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { PdashboardComponent } from './pdashboard/pdashboard.component';
 
 
 @NgModule({
@@ -26,13 +29,18 @@ import { ProductComponent } from './product/product.component';
     WarehouseComponent,
     AccountComponent,
     PlaceComponent,
-    ProductComponent
+    ProductComponent,
+    MobileComponent,
+    PdashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes
+    routes,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCC4lO1PjOC9xzRaOK86FJoht6VBFYcsB8'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
