@@ -16,6 +16,7 @@ import { ProductComponent } from './product/product.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
+import { WdashboardComponent } from './wdashboard/wdashboard.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PdashboardComponent } from './pdashboard/pdashboard.component';
     PlaceComponent,
     ProductComponent,
     MobileComponent,
-    PdashboardComponent
+    PdashboardComponent,
+    WdashboardComponent
   ],
   imports: [
     BrowserModule,
