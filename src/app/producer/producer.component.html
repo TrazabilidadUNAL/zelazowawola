@@ -1,4 +1,4 @@
-<div class="container fill">
+<div class="container">
   <h2>Producer Settings</h2>
   <div class="row">
 
@@ -6,10 +6,9 @@
     <div class="tab-content col-md-5">
       <div id="getProducer">
         <div class="form">
-
           <form #getNGForm="ngForm" (ngSubmit)="getProducer(getNGForm.value)">
             <input type="text" id="inputID1" name="GetProducer" ngModel>
-            <button type="submit" class="btn btn-success">GET</button>
+            <button type="submit" class="btn btn-info">GET</button>
           </form>
         </div>
       </div>
@@ -43,18 +42,18 @@
               <label><input type="checkbox" required>Accept the Gretel Terms and Conditions</label>
             </div>
             <br>
-            <button type="submit" class="btn btn-default">Update Producer</button>
+            <button type="submit" class="btn btn-primary">Update Producer</button>
           </form>
         </div>
       </div>
 
       <!-- DELETE PRODUCER -->
       <div id="deleteProducer">
-        <h3>Delete Your Account</h3>
+        <h3 class="del">Delete Your Account</h3>
         <div class="form">
           <form #deleteNGForm="ngForm" (ngSubmit)="deleteProducer(deleteNGForm.value)">
             <input type="text" id="inputID2" name="DeleteProducer" ngModel>
-            <button type="submit" class="btn btn-success">DELETE</button>
+            <button type="submit" class="btn btn-danger">DELETE</button>
           </form>
         </div>
       </div>

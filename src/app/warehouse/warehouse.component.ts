@@ -26,6 +26,21 @@ export class WarehouseComponent implements OnInit {
     console.log(this.ware);
   }
 
+  putWarehouse(form: any): void {
+    const id = form['wID'];
+    const name = form['wName'];
+    const username = form['wUsername'];
+    const password = form['wPassword'];
+    const wModel = new Warehouse(name, username, password);
+    const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
+    const options = new RequestOptions({headers: headers});
+
+    console.log(JSON.stringify(wModel));
+    this.http
+      .put(`${this.url}/${id}`, JSON.stringify(wModel), options)
+      .map(res => res.json()).subscribe( data => console.log(data));
+  }
+
   deleteWarehouse(form: any): void {
     const id = form['delWarehouse'];
     this.http

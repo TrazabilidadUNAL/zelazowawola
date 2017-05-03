@@ -1,79 +1,70 @@
-<div class="container fill">
-  <h2>Warehouse</h2>
+<div class="container">
+  <h2>Warehouse Settings</h2>
   <div class="row">
-    <div class="col-md-3">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#getWarehouse">Your Information</a></li>
-        <li><a data-toggle="pill" href="#putWarehouse">Update Your Information</a></li>
-        <li><a data-toggle="pill" href="#deleteWarehouse">Delete Your Account</a></li>
-      </ul>
-    </div>
-
     <div class="tab-content col-md-5">
-      <div id="getWarehouse" class="tab-pane fade in active">
+      <div id="getWarehouse">
         <h3>Your Information</h3>
         <div class="form">
-          <form #g="ngForm" (ngSubmit)="getWarehouse(g.value)">
+          <form #getNGForm="ngForm" (ngSubmit)="getWarehouse(getNGForm.value)">
             <div class="form-group">
-              <label class="control-label" for="GetWarehouse">ID:</label>
+              <label class="form-label" for="GetWarehouse">ID:</label>
               <input type="text" id="GetWarehouse" name="GetWarehouse" ngModel>
-              <button type="submit" class="btn btn-success">GET</button>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-3" for="wName">Name:</label>
-              <div class="col-sm-7">
-                <p class="form-control-static" name="wName">{{ware?.data.name}}</p>
-              </div>
-              <label class="control-label col-sm-3" for="wUsername">Username:</label>
-              <div class="col-sm-7">
-                <p class="form-control-static" name="wUsername">{{ware?.data.username}}</p>
-              </div>
+              <button type="submit" class="btn btn-info">GET</button>
             </div>
           </form>
         </div>
       </div>
 
-      <div id="putWarehouse" class="tab-pane fade">
-        <h3>Update Your Information</h3>
+      <div id="putWarehouse">
         <div class="form">
-          <form action="#" method="post">
+          <form #putNGForm="ngForm" (ngSubmit)="putWarehouse(putNGForm.value)" >
             <div class="form-group">
-              <label for="usr">Change User:</label>
-              <input type="text" class="form-control" placeholder="User">
+              <label class="control-label" for="wID">ID:</label>
+              <input type="text" id="wID" name="wID"
+                  class="form-control" ngModel required value="{{ware?.data.id}}">
             </div>
             <div class="form-group">
-              <label for="usr">Change Username:</label>
-              <input type="text" class="form-control" placeholder="Username">
+              <label class="control-label" for="wName">Name:</label>
+              <input type="text" id="wName" name="wName"
+                  class="form-control" ngModel required value="{{ware?.data.name}}">
             </div>
             <div class="form-group">
-              <label for="pwd">Old Password:</label>
-  	          <input type="password" class="form-control" placeholder="Password">
-              <label for="pwd">New Password:</label>
-  	          <input type="password" class="form-control" placeholder="New Password">
-              <label for="pwd">Confirm New Password:</label>
-  	          <input type="password" class="form-control" placeholder="Confirm New Password">
+              <label class="control-label" for="wUsername">Username:</label>
+              <input type="text" id="wUsername" name="wUsername"
+                  class="form-control" ngModel required value="{{ware?.data.username}}">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="wPassword">Password:</label>
+              <input type="password" id="wPassword" name="wPassword"
+                  class="form-control" ngModel required>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" required>Are you sure?</label>
             </div>
             <br>
-            <button type="submit" class="btn btn-default">Confirm</button>
+              <button type="submit" class="btn btn-primary">Update Warehouse</button>
           </form>
         </div>
       </div>
 
       <div id="deleteWarehouse">
-        <h3>Delete Your Account</h3>
+        <h3 class="del">Delete Your Account</h3>
         <div class="form">
           <form #deleteNGForm="ngForm" (ngSubmit)="deleteWarehouse(deleteNGForm.value)">
-            <input type="text" id="delWarehouse" name="delWarehouse" ngModel>
-            <button type="submit" class="btn btn-success">DELETE</button>
+            <div class="form-group">
+              <label class="control-label" for="delWarehouse">ID:</label>
+              <input type="text" id="delWarehouse" name="delWarehouse" ngModel>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" required>Are you sure?</label>
+              <button type="submit" class="btn btn-danger">DELETE</button>
+            </div>
           </form>
         </div>
       </div>
+
     </div>
 
-    <div class="clearfix visible-lg"></div>
+    <div class="clearfix visible-lg-md-block"></div>
   </div>
 </div>
