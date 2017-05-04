@@ -31,31 +31,54 @@
   <!-- the component as the initial center of the map: -->
   
   <div class="border-map">
-  <sebm-google-map [latitude]="lat" [longitude]="lng">
-    <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  <sebm-google-map [latitude]="lat" [longitude]="lon">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lon"></sebm-google-map-marker>
   </sebm-google-map>
   </div>
 
-
-  <form #getRForm="ngForm" (ngSubmit)="getRoute(getRForm.value)">
+  <!-- shows json  -->
+  <form #getRForm="ngForm" (ngSubmit)="getRoute()">
     <input type="text" id="inputID1" name="GetRoute" ngModel>
     <button type="submit" class="btn btn-success">GET</button>
   </form>
   <div *ngIf="loading">loading...</div>
   <pre>{{dRoute?.data.route_logs | json}}</pre>
   
-  <!--
+  <!-- prints latitude and longitude list -->
   <h2>Routes</h2>
-      <ul class="routes">
-        <li *ngFor="let ro of dRoute?.data"
-            [class.selected]="ro === selectedRoute"
-            (click)="onSelectRo(ro)">
-          <span>{{ro.tag}}</span>
-        </li>
-      </ul>
-  //-->
+  <ul class="routes">
+    <li *ngFor="let ro of dRoute?.data.route_logs"
+        [class.selected]="ro === selectedRoute"
+        (click)="onSelectRo(ro)">
+      <span>{{ro.lat}}</span>
+      <span>{{ro.lon}}</span>
+    </li>
+  </ul>
+
+  <!-- adds graphs images -->
   <h3 class="centered-text">Graph of humidity vs time</h3>
   <img class = "image-borders"src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 01">
   <h3 class="centered-text">Graph of temperature vs time</h3>
   <img class = "image-borders" src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 02">
+
+  <!-- shows json croplogs -->
+
+  <form #getRForm="ngForm" (ngSubmit)="getCropLogs()">
+    <input type="text" id="GetLogs" name="GetLogs" ngModel>
+    <button type="submit" class="btn btn-success">GET</button>
+  </form>
+  <div *ngIf="loading">loading...</div>
+  <pre>{{cropLogs?.data.crop_logs | json}}</pre>
+
+  <h2>Logs</h2>
+  <div class ="styled">
+    <ul class ="styledul">
+      <li class ="styledli" *ngFor="let log of cropLogs?.data.crop_logs"
+          [class.selected]="log === selectedLog"
+          (click)="onSelectLog(log)">
+        <h3 class ="styledh3">{{log.created_at}}</h3>    
+        <p class ="styledp">{{log.description}}</p>
+      </li>
+    </ul>
+  </div>
 </div>
