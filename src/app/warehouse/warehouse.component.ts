@@ -13,71 +13,50 @@ import 'rxjs/add/operator/catch';
 })
 
 export class WarehouseComponent implements OnInit {
-
   ware: Object;
-  place: Object;
-  place01: Object;
-  constructor(private http: Http) { }
+  wareID: number = 1;
+  url: string = 'http://localhost:3000/v1/warehouses';
+  constructor(private http: Http) {
+  }
 
-  getWarehouse(form: any): void {
-    const id = form['GetWarehouse'];
+  getWarehouse(): void {
+    const id = this.wareID;
     this.http
-      .get(`http://localhost:3000/v1/warehouses/${id}`)
+      .get(`${this.url}/${id}`)
       .subscribe((res: Response) => this.ware = res.json());
+    console.log(this.ware);
   }
 
-  getWarehousePlace(form: any): void {
-    const id = form['GetWarehouse'];
+  putWarehouse(form: any): void {
+    const id = form['wID'];
+    const name = form['wName'];
+    const username = form['wUsername'];
+    const password = form['wPassword'];
+    const wModel = new Warehouse(name, username, password);
+    const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
+    const options = new RequestOptions({headers: headers});
+
+    console.log(JSON.stringify(wModel));
     this.http
-      .get(`http://localhost:3000/v1/warehouses/${id}/places/1`)
-      .subscribe((res: Response) => this.place = res.json());
+      .put(`${this.url}/${id}`, JSON.stringify(wModel), options)
+      .map(res => res.json()).subscribe( data => console.log(data));
   }
 
-  // getWarehouseId(form: any): Observable<any> {
-  //   const id = form['GetWarehouseId'];
-  //   return this.http
-  //     .get(`http://localhost:3000/v1/warehouses/` + '/?' + 'id' + '=' + id)
-  //     .map(this.extractData)
-  //     .catch(this.handleError);
-  // }
-  //
-  // putWarehouse(form: any): Observable<any> {
-  //   const id = form['wId'];
-  //   const name = form['wName'];
-  //   const username = form['wUserame'];
-  //   const password = form['wPassword'];
-  //   const warehouse1 = new Warehouse(name, username, password);
-  //   console.log(JSON.stringify(warehouse1));
-  //   const headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
-  //   const options = new RequestOptions({headers: headers});
-  //
-  //   return this.http
-  //       .put('http://localhost:3000/v1/warehouses', JSON.stringify(warehouse1), {headers: headers})
-  //       .map(res => res.json())
-  //       .catch(this.handleError);
-  // }
-  //
-  // deleteWarehouseId(form: any): Observable<any> {
-  //   const id = form['DelWarehouse'];
-  //   return this.http
-  //     .delete('http://localhost:3000/v1/warehouses/' + '/?' + 'id' + '=' + id)
-  //     .map(this.extractData)
-  //     .catch(this.handleError);
-  // }
-  //
-  // private extractData(res: Response) {
-  //     this.ware = res.json();
-  //     return this.ware || {};
-  // }
-  //
-  // private handleError(error: any) {
-  //     const errMsg = (error.message) ? error.message :
-  //         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-  //     console.error(errMsg);
-  //     return Observable.throw(errMsg);
-  // }
+  deleteWarehouse(form: any): void {
+    const id = this.wareID;
+    const psw1 = form['delWarehouse'];
+    const psw2 = form['confDelWarehouse'];
+    if (psw1 === psw2) {
+      this.http
+        .delete(`${this.url}/${id}`)
+        .subscribe((res: Response) => this.ware = res.json());
+      console.log(this.ware);
+      document.getElementById('confirm').hidden = false;
+    }
+  }
 
   ngOnInit() {
+    this.getWarehouse();
   }
 
 }

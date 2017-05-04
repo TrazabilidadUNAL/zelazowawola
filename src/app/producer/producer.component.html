@@ -1,101 +1,80 @@
-<div class="container fill">
+<div class="container">
   <h2>Producer Settings</h2>
   <div class="row">
-    <div class="col-md-3">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a data-toggle="pill" href="#getProducer">Your Information</a></li>
-        <li><a data-toggle="pill" href="#putProducer">Update Your Information</a></li>
-        <!--
-        <li><a data-toggle="pill" href="#placesProducer">Your Places</a></li>
-        <li><a data-toggle="pill" href="#placesProduct">Your Products</a></li>
-        -->
-        <li><a data-toggle="pill" href="#deleteProducer">Delete Your Account</a></li>
-      </ul>
-    </div>
 
-    <!-- GET PRODUCER -->
     <div class="tab-content col-md-5">
-      <div id="getProducer" class="tab-pane fade in active">
+      <div id="getProducer">
         <div class="form">
-
           <form #getNGForm="ngForm" (ngSubmit)="getProducer(getNGForm.value)">
             <input type="text" id="inputID1" name="GetProducer" ngModel>
-            <button type="submit" class="btn btn-success">GET</button>
-
-            <h3>Your Information</h3>
-            <div class="form-group">
-              <label class="control-label col-sm-3">Name:</label>
-              <div class="col-sm-7">
-                <p class="form-control-static" name="wName">{{dProducer?.data.first_name}}</p>
-              </div>
-              <label class="control-label col-sm-3">Last Name:</label>
-              <div class="col-sm-7">
-                <p class="form-control-static" name="wLastname">{{dProducer?.data.last_name}}</p>
-              </div>
-              <label class="control-label col-sm-3">Username:</label>
-              <div class="col-sm-7">
-                <p class="form-control-static" name="wUsername">{{dProducer?.data.username}}</p>
-              </div>
-            </div>
+            <button type="submit" class="btn btn-info">GET</button>
           </form>
         </div>
       </div>
 
-      <!-- PUT PRODUCER -->
-      <div id="putProducer" class="tab-pane fade">
+      <div id="putProducer">
         <h3>Update Your Information</h3>
         <div class="form">
           <form #putNGForm="ngForm" (ngSubmit)="putProducer(putNGForm.value)" >
             <div class="form-group">
               <label>ID:</label>
-              <input type="text" id="pID" name="pID" class="form-control" ngModel required>
+              <input type="text" id="pID" name="pID" class="form-control"
+                  ngModel required value="{{dProducer?.data.id}}">
             </div>
             <div class="form-group">
               <label>Name:</label>
-              <input type="text" id="pFirstName" name="pFirstName" class="form-control" ngModel required>
+              <input type="text" id="pFirstName" name="pFirstName" class="form-control"
+                  ngModel required value="{{dProducer?.data.first_name}}">
             </div>
             <div class="form-group">
               <label>Last Name:</label>
-              <input type="text" id="pLastName" name="pLastName" class="form-control" ngModel required>
+              <input type="text" id="pLastName" name="pLastName" class="form-control"
+                  ngModel required value="{{dProducer?.data.last_name}}">
             </div>
             <div class="form-group">
               <label>Username:</label>
-              <input type="text" id="pUsername" name="pUsername" class="form-control" ngModel required>
+              <input type="text" id="pUsername" name="pUsername" class="form-control"
+                  ngModel required value="{{dProducer?.data.username}}">
             </div>
             <div class="form-group">
               <label>Password:</label>
-              <input type="password" id="pPassword" name="pPassword" class="form-control" ngModel required>
+              <input type="password" id="pPassword" name="pPassword"
+                  class="form-control" ngModel required>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" required>Accept the Gretel Terms and Conditions</label>
+              <label><input type="checkbox" required>Are you sure?</label>
             </div>
             <br>
-            <button type="submit" class="btn btn-default">Register Producer</button>
-          </form>
-        </div>
-      </div>
-      <!--
-      <div id="placesProducer" class="tap-pane fade">
-        <app-place></app-place>
-      </div>
-
-      <div id="placesProduct" class="tap-pane fade">
-        <app-product></app-product>
-      </div>
-      -->
-
-      <!-- DELETE PRODUCER -->
-      <div id="deleteProducer" class="tap-pane fade">
-        <h3>Delete Your Account</h3>
-        <div class="form">
-          <form #deleteNGForm="ngForm" (ngSubmit)="deleteProducer(deleteNGForm.value)">
-            <input type="text" id="inputID2" name="DeleteProducer" ngModel>
-            <button type="submit" class="btn btn-success">DELETE</button>
+            <button type="submit" class="btn btn-primary">Update Producer</button>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="clearfix visible-lg"></div>
+    <div class="tab-content col-md-5">
+      <div id="deleteProducer">
+        <h3 class="del">Delete Your Account</h3>
+        <div class="form">
+          <form #deleteNGForm="ngForm" (ngSubmit)="deleteProducer(deleteNGForm.value)">
+            <div class="form-group">
+              <label class="control-label" for="delWarehouse">Password:</label>
+              <input type="text" id="inputID2" name="DeleteProducer"
+                  class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="delWarehouse">Password:</label>
+              <input type="text" id="inputID2" name="DeleteProducer"
+                  class="form-control" ngModel required>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" required>Are you sure?</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-danger">DELETE YOUR ACCOUNT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

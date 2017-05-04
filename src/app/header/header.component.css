@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 .navbar-brand{
-    font-family: 'Pacifico', cursive;
-    font-size: 45px !important;
-    text-shadow: -2px 0 #ca7700, 0 2px #ca7700, 2px 0 #ca7700, 0 -2px #ca7700;
+  font-family: 'Pacifico', cursive;
+	font-size: 43px !important;
+  text-shadow:
+   -1px -1px 0 #f2981f,
+    1px -1px 0 #f2981f,
+   -1px 1px 0 #f2981f,
+    1px 1px 0 #f2981f;
 }
+
+/*.hide {
+  display: none !important;
+}*/
