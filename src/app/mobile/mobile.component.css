@@ -72,48 +72,52 @@
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+    width: 30em;
 }
 
 .routes li {
     cursor: pointer;
     position: relative;
     left: 0;
-    background-color: #EEF;
-    color: #ff3300 ;
+    color: #000000 ;
     margin: .5em;
     padding: .3em 0;
     height: 5em;
-    border-radius: 4px;
+    border-style: solid;
+    border-color: #ffffff;
+    outline-style: outset;
+    outline-color: #ff3300;
+    background-color: #ffc299;
 }
 
 .routes li.selected:hover  {
-    background-color: #BBD8DC !important;
-    color: white;
+    background-color: #ffc299 !important;
+    color: black;
 }
 
 .routes li:hover{
-    color: #607D8B ;
-    background-color: #DDD;
+    color: black ;
+    background-color: #ffc299;
     left: .1em;
 }
 
 .routes .text{
-    position: relative;
-    top: -3px;
+    background-color: #ffc299;
 }
 .routes .badge {
     display: inline-block;
     font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B ;
+    color: black;
+    padding: 0.8em 0.7em 0.8em 0.7em;
+    background-color: #ffffff ;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
     height: 1.8em;
-    width:15em;
+    width:31em;
     margin-right: .8em;
-    border-radius: 4px 0 0 4px;
+    margin-bottom: 3px;
+    border-radius: 0 0 0 0;
+    
 }
