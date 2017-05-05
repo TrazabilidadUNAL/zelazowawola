@@ -31,8 +31,13 @@
   <!-- the component as the initial center of the map: -->
   
   <div class="border-map">
-  <sebm-google-map [latitude]="lat" [longitude]="lon">
-    <sebm-google-map-marker [latitude]="lat" [longitude]="lon"></sebm-google-map-marker>
+  <sebm-google-map [latitude]="dRoute?.data.route_logs[0].lat" [longitude]="dRoute?.data.route_logs[0].lon" [zoom]="2">
+    <sebm-google-map-marker *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon" [style.color]="'red'">
+    </sebm-google-map-marker>
+    <sebm-google-map-polyline>
+         <sebm-google-map-polyline-point *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon">
+         </sebm-google-map-polyline-point>
+     </sebm-google-map-polyline>
   </sebm-google-map>
   </div>
 
