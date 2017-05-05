@@ -13,18 +13,27 @@
     	<a class="navbar-brand" href="#">Gretel</a>
     </div>
 
-
-		<div class="navbar-right">
+		<div class="collapse navbar-collapse" id="nav-colapse-login" *ngIf="logAct">
+			<form class="navbar-form navbar-right" id="nav-login" (ngSubmit)="onLoged()">
+        <div class="form-group">
+          <input type="text" id="uName" name="uName" class="form-control" placeholder="Username"
+							[(ngModel)] = 'role' required>
+          <input type="password" id="pWord" name="pWord" class="form-control" placeholder="Password"
+							[(ngModel)] = 'lgID' required>
+        </div>
+        <button type="submit" class="btn btn-default">Sign In</button>
+      </form>
+		</div>
 
 		<!-- Producer menu -->
-    <!-- <div class="navbar-collapse" id="nav-colapse-producer"> -->
-			<ul class="nav navbar-nav navbar-collapse navbar-right"  id="nav-producer">
+    <div class="navbar-collapse" id="nav-colapse-producer" *ngIf="prodAct">
+			<ul class="nav navbar-nav navbar-collapse navbar-right" id="nav-producer">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 								role="button" aria-haspopup="true"
 								aria-expanded="false">Producer<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Signed in as <br><b>{{username}}</b></a></li>
+            <li><a>Signed in as<br><b>{{role}} {{lgID}}</b></a></li>
             <li role="separator" class="divider"></li>
             <li><a routerLink="pdashboard">Your profile</a></li>
             <li ><a >Explore</a></li>
@@ -35,17 +44,17 @@
           </ul>
         </li>
       </ul>
-    <!-- </div> -->
+    </div>
 
 		<!-- Warehouse menu -->
-    <!-- <div class="navbar-collapse hide" id="nav-colapse-warehouse"> -->
-			<ul class="nav navbar-nav navbar-collapse navbar-right" id="nav-warehouse">
+    <div class="navbar-collapse" id="nav-colapse-warehouse" *ngIf="warhAct">
+			<ul class="nav navbar-nav navbar-right" id="nav-warehouse">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 								role="button" aria-haspopup="true"
 								aria-expanded="false">Warehouse<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Signed in as <br><b>{{username}}</b></a></li>
+            <li><a>Signed in as<br><b>{{role}} {{lgID}}</b></a></li>
             <li role="separator" class="divider"></li>
             <li><a >Your profile</a></li>
             <li><a >Explore</a></li>
@@ -56,19 +65,9 @@
           </ul>
         </li>
       </ul>
-    <!-- </div> -->
+    </div>
 
-		<!-- <div class="collapse navbar-collapse" id="nav-colapse-login"> -->
-			<form class="navbar-form navbar-right" id="nav-login">
-        <div class="form-group">
-          <input type="text" id="uName" name="uName" class="form-control" placeholder="Username">
-          <input type="password" id="pWord" name="pWord" class="form-control" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default" onclick="hide_show(uName);">Sign In</button>
-      </form>
-		<!-- </div> -->
-
-		</div>
+		<!-- <warehouse [lgID] = "23"> </warehouse> -->
 
 	</div>
 </nav>

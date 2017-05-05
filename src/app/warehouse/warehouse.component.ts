@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Warehouse } from './warehouse';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-warehouse',
@@ -13,8 +15,10 @@ import 'rxjs/add/operator/catch';
 })
 
 export class WarehouseComponent implements OnInit {
+  @Input() lgID: string;
+
   ware: Object;
-  wareID: number = 1;
+  wareID: string = '1';
   url: string = 'http://localhost:3000/v1/warehouses';
   constructor(private http: Http) {
   }

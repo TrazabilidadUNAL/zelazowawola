@@ -1,32 +1,40 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 
 export class HeaderComponent implements OnInit {
-  // Guardamos los datos que nos pasa el componente padre
-  @Input() username: string = 'Producer';
+  public role: string;
+  public lgID: string;
+
+  logAct = true;
+  prodAct = false;
+  warhAct = false;
 
   constructor() { }
+
+  onLoged() {
+    if (this.role === 'producer') {
+      this.prodAct = true;
+      this.warhAct = false;
+      this.logAct = false;
+    } else {
+      if (this.role === 'warehouse') {
+        this.warhAct = true;
+        this.prodAct = false;
+        this.logAct = false;
+      } else {
+        this.logAct = true;
+        this.prodAct = false;
+        this.warhAct = false;
+      }
+    }
+  }
 
   ngOnInit() {
   }
 
-}
-
-function hide_show(type): void {
-  // const type = form['uName'];
-  if (type === 'producer') {
-    document.getElementById('nav-producer').className = 'collapse navbar-collapse show';
-    document.getElementById('nav-warehouse').className = 'collapse navbar-collapse hide';
-  } else if (type === 'warehouse') {
-    document.getElementById('nav-warehouse').className = 'collapse navbar-collapse show';
-    document.getElementById('nav-producer').className = 'collapse navbar-collapse hide';
-  } else {
-    document.getElementById('nav-warehouse').className = 'collapse navbar-collapse hide';
-    document.getElementById('nav-producer').className = 'collapse navbar-collapse hide';
-  }
 }

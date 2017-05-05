@@ -10,11 +10,12 @@ import {Producer} from './producer';
 })
 export class ProducerComponent implements OnInit {
   dProducer: Object;
+  pID: number = 1;
   urlProducer: string = 'http://localhost:3000/v1/producers';
   constructor(public http: Http) {}
 
-  getProducer(form: any): void {
-    const id = form['GetProducer'];
+  getProducer(): void {
+    const id = this.pID;
 
     this.http.get(`${this.urlProducer}/${id}`)
         .subscribe((res: Response) => this.dProducer = res.json());
@@ -46,6 +47,7 @@ export class ProducerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getProducer();
   }
 
 }
