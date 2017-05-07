@@ -40,7 +40,7 @@ export class PdashboardComponent implements OnInit {
             data => console.log(data)
         );
     //REFRESH PLACES
-    this.http.get(`${this.urlBase}/producers/${tag}/places`)
+    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
       .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
   }
@@ -66,15 +66,14 @@ export class PdashboardComponent implements OnInit {
   getProducerPP(): void {
     //const tag = form['GetProducerPlaces'];
     this.idBase = Math.floor(Math.random() * (1500 - 0 + 1)) + 0;
-    const tag = this.idBase;
 
     //PLACES
-    this.http.get(`${this.urlBase}/producers/${tag}/places`)
+    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
       .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
 
     //PRODUCTS
-    this.http.get(`${this.urlBase}/producers/${tag}/products`)
+    this.http.get(`${this.urlBase}/producers/${this.idBase}/products`)
         .subscribe((res: Response) => this.oProducts = res.json());
     console.log(this.oProducts);
   }
@@ -103,7 +102,7 @@ export class PdashboardComponent implements OnInit {
   refresh1(){
     //PLACES
     const tag = this.idBase;
-    this.http.get(`${this.urlBase}/producers/${tag}/places`)
+    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
         .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
   }
@@ -111,9 +110,20 @@ export class PdashboardComponent implements OnInit {
   refresh2(){
     //PRODUCTS
     const tag = this.idBase;
-    this.http.get(`${this.urlBase}/producers/${tag}/products`)
+    this.http.get(`${this.urlBase}/producers/${this.idBase}/products`)
         .subscribe((res: Response) => this.oProducts = res.json());
     console.log(this.oProducts);
+  }
+
+  placeRemoved: Object;
+
+  deletePlace(id:string){
+    console.log(id);
+
+    this.http.delete(`${this.urlBase}/producers/${this.idBase}/places/${id}`)
+      .subscribe((res: Response) => this.placeRemoved = res.json());
+    console.log(this.placeRemoved);
+    this.refresh1();
   }
 
 }

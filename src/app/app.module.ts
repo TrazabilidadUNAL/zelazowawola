@@ -17,6 +17,7 @@ import { MobileComponent } from './mobile/mobile.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
 import { WdashboardComponent } from './wdashboard/wdashboard.component';
+import { DheaderComponent } from './dheader/dheader.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { WdashboardComponent } from './wdashboard/wdashboard.component';
     ProductComponent,
     MobileComponent,
     PdashboardComponent,
-    WdashboardComponent
+    WdashboardComponent,
+    DheaderComponent
   ],
   imports: [
     BrowserModule,
