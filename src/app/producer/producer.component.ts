@@ -10,7 +10,7 @@ import {Producer} from './producer';
 })
 export class ProducerComponent implements OnInit {
   dProducer: Object;
-  pID: number = 1;
+  pID: string = '1';
   urlProducer: string = 'http://localhost:3000/v1/producers';
   constructor(public http: Http) {}
 
@@ -23,7 +23,7 @@ export class ProducerComponent implements OnInit {
   }
 
   putProducer(form: any): void {
-    const id = form['pID'];
+    const id = this.pID;
     const first_name = form['pFirstName'];
     const last_name = form['pLastName'];
     const username = form['pUsername'];
@@ -39,7 +39,7 @@ export class ProducerComponent implements OnInit {
   }
 
   deleteProducer(form: any): void {
-    const id = form['DeleteProducer'];
+    const id = this.pID;
 
     this.http.delete(`${this.urlProducer}/${id}`)
       .subscribe((res: Response) => this.dProducer = res.json());

@@ -17,11 +17,6 @@
         <div class="form">
           <form #putNGForm="ngForm" (ngSubmit)="putProducer(putNGForm.value)" >
             <div class="form-group">
-              <label>ID:</label>
-              <input type="text" id="pID" name="pID" class="form-control"
-                  ngModel required value="{{dProducer?.data.id}}">
-            </div>
-            <div class="form-group">
               <label>Name:</label>
               <input type="text" id="pFirstName" name="pFirstName" class="form-control"
                   ngModel required value="{{dProducer?.data.first_name}}">

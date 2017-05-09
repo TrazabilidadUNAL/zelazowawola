@@ -19,11 +19,6 @@
         <div class="form">
           <form #putNGForm="ngForm" (ngSubmit)="putWarehouse(putNGForm.value)">
             <div class="form-group">
-              <label class="control-label" for="wID">ID:</label>
-              <input type="text" id="wID" name="wID"
-                  class="form-control" ngModel required value="{{ware?.data.id}}">
-            </div>
-            <div class="form-group">
               <label class="control-label" for="wName">Name:</label>
               <input type="text" id="wName" name="wName"
                   class="form-control" ngModel required value="{{ware?.data.name}}">
