@@ -98,4 +98,8 @@
   padding: 10px;
   overflow: auto;
 }
- 
+
+.bc-places-color{
+    background-color: #ffb989;
+    border-right: double;
+}
