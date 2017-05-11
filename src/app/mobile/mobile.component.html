@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Welcome to gretel!</a>
+      <a class="navbar-brand" href="#">Welcome to Gretel!</a>
     </div>
   </div>
 </nav>
@@ -13,7 +13,7 @@
       <img class = "image-borders"src="http://norfolkvegbox.com/themestatic/uploads/2014/12/marispiper.jpg" alt="graph 01">
     </div>
     <div class="col-sm-6">
-      <h2>Potato</h2>
+      <h3 class="centered-text">Potato</h3>
       <p>This is a product that grows in places with cold weathers and is really tasty, if well prepared,
         cause some people really don't know whats up when it comes to cooking, like come on guys you can make a
         good stew with potatoes, why bother doing more complicated and awful stuff.
@@ -23,39 +23,76 @@
 </div>
 <div class="container block">
   <div class="page-header">
-    <h2 class="centered-text ">
-      This is where your potatoes came from
-    </h2>
+    <h3 class="centered-text ">This is where your product came from</h3>
   </div>
+  <h4 class="centered-text">The map shows the place where your product was cultivated and the places it was taken from there.</h4>
   <!-- this creates a google map on the page with the given lat/lng from -->
   <!-- the component as the initial center of the map: -->
   
   <div class="border-map">
-  <sebm-google-map [latitude]="lat" [longitude]="lng">
-    <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  <sebm-google-map [latitude]="dRoute?.data.route_logs[0].lat" [longitude]="dRoute?.data.route_logs[0].lon" [zoom]="1.5" [scrollwheel] = "false" [mapTypeControl]="true">
+    <sebm-google-map-marker *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon" [style.color]="'red'">
+    </sebm-google-map-marker>
+    <sebm-google-map-polyline>
+         <sebm-google-map-polyline-point *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon">
+         </sebm-google-map-polyline-point>
+     </sebm-google-map-polyline>
   </sebm-google-map>
   </div>
 
-
-  <form #getRForm="ngForm" (ngSubmit)="getRoute(getRForm.value)">
+  <!-- shows json  -->
+  <!--
+  <form #getRForm="ngForm" (ngSubmit)="getRoute()">
     <input type="text" id="inputID1" name="GetRoute" ngModel>
     <button type="submit" class="btn btn-success">GET</button>
   </form>
   <div *ngIf="loading">loading...</div>
   <pre>{{dRoute?.data.route_logs | json}}</pre>
+  //-->
   
+  <!-- prints latitude and longitude list -->
   <!--
   <h2>Routes</h2>
-      <ul class="routes">
-        <li *ngFor="let ro of dRoute?.data"
-            [class.selected]="ro === selectedRoute"
-            (click)="onSelectRo(ro)">
-          <span>{{ro.tag}}</span>
-        </li>
-      </ul>
+  <ul class="routes">
+    <li *ngFor="let ro of dRoute?.data.route_logs"
+        [class.selected]="ro === selectedRoute"
+        (click)="onSelectRo(ro)">
+      <span>{{ro.lat}}</span>
+      <span>{{ro.lon}}</span>
+    </li>
+  </ul>
   //-->
-  <h3 class="centered-text">Graph of humidity vs time</h3>
+
+  <!-- adds graphs images -->
+  <div class="page-header">
+    <h3 class="centered-text">Graph of humidity vs time</h3>
+  </div>
+  <h4 class="centered-text">A graph showing the humidity that your product had to face during its shipment </h4>
   <img class = "image-borders"src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 01">
-  <h3 class="centered-text">Graph of temperature vs time</h3>
+  <div class="page-header">
+    <h3 class="centered-text">Graph of temperature vs time</h3>
+  </div>
+  <h4 class="centered-text">A graph showing the temperature that your product had to face during its shipment </h4>
   <img class = "image-borders" src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 02">
+
+  <!-- shows json croplogs -->
+  <!--
+  <form #getRForm="ngForm" (ngSubmit)="getCropLogs()">
+    <input type="text" id="GetLogs" name="GetLogs" ngModel>
+    <button type="submit" class="btn btn-success">GET</button>
+  </form>
+  <div *ngIf="loading">loading...</div>
+  <pre>{{cropLogs?.data.crop_logs | json}}</pre>
+  //-->
+  <div class="page-header">
+    <h3 class="centered-text">Crop journal</h3>
+  </div>
+  <h4 class="centered-text">This is a brief review of what happened to your product during it's early stages, while growing in the farm</h4>
+  <ul class ="routes">
+    <li *ngFor="let log of cropLogs?.data.crop_logs"
+        [class.selected]="log === selectedLog"
+        (click)="onSelectLog(log)">
+      <span class="badge">{{log.created_at}}</span> {{log.description}}
+    </li>
+  </ul>
 </div>

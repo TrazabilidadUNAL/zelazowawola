@@ -10,6 +10,7 @@ import { PlaceComponent } from './place/place.component';
 import { ProductComponent } from './product/product.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
+import { WdashboardComponent } from './wdashboard/wdashboard.component';
 
 export const router: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ export const router: Routes = [
   { path: 'place', component: PlaceComponent },
   { path: 'product', component: ProductComponent },
   { path: 'mobile', component: MobileComponent },
-  { path: 'pdashboard', component: PdashboardComponent }
+  { path: 'pdashboard', component: PdashboardComponent },
+  { path: 'wdashboard', component: WdashboardComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
