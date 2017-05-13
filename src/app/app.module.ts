@@ -18,6 +18,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
 import { WdashboardComponent } from './wdashboard/wdashboard.component';
 import { DheaderComponent } from './dheader/dheader.component';
+import { O2ChartComponent, ChartConst } from 'o2-chart-lib'; // <= Add
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DheaderComponent } from './dheader/dheader.component';
     MobileComponent,
     PdashboardComponent,
     WdashboardComponent,
-    DheaderComponent
+    DheaderComponent,
+    O2ChartComponent,  // <= Add
   ],
   imports: [
     BrowserModule,
