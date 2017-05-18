@@ -28,7 +28,7 @@
   <h4 class="centered-text">The map shows the place where your product was cultivated and the places it was taken from there.</h4>
   <!-- this creates a google map on the page with the given lat/lng from -->
   <!-- the component as the initial center of the map: -->
-  
+
   <div class="border-map">
   <sebm-google-map [latitude]="dRoute?.data.route_logs[0].lat" [longitude]="dRoute?.data.route_logs[0].lon" [zoom]="1.5" [scrollwheel] = "false" [mapTypeControl]="true">
     <sebm-google-map-marker *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon" [style.color]="'red'">
@@ -49,7 +49,7 @@
   <div *ngIf="loading">loading...</div>
   <pre>{{dRoute?.data.route_logs | json}}</pre>
   //-->
-  
+
   <!-- prints latitude and longitude list -->
   <!--
   <h2>Routes</h2>
@@ -65,16 +65,24 @@
 
   <!-- adds graphs images -->
   <div class="page-header">
-    <h3 class="centered-text">Graph of humidity vs time</h3>
+    <h3 class="centered-text">Graph of humidity and temperature vs site</h3>
   </div>
-  <h4 class="centered-text">A graph showing the humidity that your product had to face during its shipment </h4>
-  <img class = "image-borders"src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 01">
-  <div class="page-header">
-    <h3 class="centered-text">Graph of temperature vs time</h3>
+  <div class="row">
+    <div class="col-md-5">
+      <h4 >A graph showing the humidity that your product had to face during its shipment </h4>
+      <h4 >A graph showing the temperature that your product had to face during its shipment </h4>
+    </div>
+    <div class="col-md-7">
+      <div style="display: block;">
+        <canvas baseChart style="border:1px solid #d3d3d3;"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [chartType]="lineChartType">
+        </canvas>
+      </div>
+    </div>
   </div>
-  <h4 class="centered-text">A graph showing the temperature that your product had to face during its shipment </h4>
-  <img class = "image-borders" src="http://www.datavizcatalogue.com/methods/images/top_images/area_graph.png" alt="graph 02">
-
   <!-- shows json croplogs -->
   <!--
   <form #getRForm="ngForm" (ngSubmit)="getCropLogs()">

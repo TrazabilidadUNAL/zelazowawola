@@ -19,6 +19,7 @@ import { PdashboardComponent } from './pdashboard/pdashboard.component';
 import { WdashboardComponent } from './wdashboard/wdashboard.component';
 import { DheaderComponent } from './dheader/dheader.component';
 
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DheaderComponent } from './dheader/dheader.component';
     routes,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCC4lO1PjOC9xzRaOK86FJoht6VBFYcsB8'
-    })
+    }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
