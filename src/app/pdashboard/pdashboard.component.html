@@ -1,24 +1,8 @@
-<h1>Producer Dashboard</h1>
-<div class="container fill">
-  <!-- GET FORM
-  <form #getNGForm="ngForm" (ngSubmit)="getProducerPP(getNGForm.value)">
-    <input type="text" id="inputID1" name="GetProducerPlaces" ngModel>
-    <button type="submit" class="btn btn-success">GET</button>
-  </form>
-  -->
-
-  <!-- PURE JSON
-  <div *ngIf="loading">loading...</div>
-  <pre>{{dProPlaces?.data | json}}</pre>
-   -->
-</div>
-
 <!-- PLACES -->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <!-- GET AND POST PLACE -->
-    <div class="col-sm-3">
-
+    <div class="col-sm-3 bc-places-color">
       <h2>Places</h2>
       <ul class="places">
         <li *ngFor="let pl of oPlaces?.data"
