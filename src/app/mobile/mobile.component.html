@@ -65,22 +65,20 @@
 
   <!-- adds graphs images -->
   <div class="page-header">
-    <h3 class="centered-text">Graph of humidity and temperature vs site</h3>
+    <h3 class="centered-text">Graph of humidity and temperature vs time</h3>
   </div>
-  <div class="row">
-    <div class="col-md-5">
-      <h4 >A graph showing the humidity that your product had to face during its shipment </h4>
-      <h4 >A graph showing the temperature that your product had to face during its shipment </h4>
-    </div>
-    <div class="col-md-7">
-      <div style="display: block;">
-        <canvas baseChart style="border:1px solid #d3d3d3;"
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [chartType]="lineChartType">
-        </canvas>
-      </div>
+  <div >
+    <h4 >A graph showing the humidity that your product had to face during its shipment </h4>
+    <h4 >A graph showing the temperature that your product had to face during its shipment </h4>
+  </div>
+  <div >
+    <div style="display: block;">
+      <canvas baseChart style="border:1px solid #d3d3d3;"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [chartType]="lineChartType">
+      </canvas>
     </div>
   </div>
   <!-- shows json croplogs -->
