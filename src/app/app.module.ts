@@ -16,7 +16,10 @@ import { ProductComponent } from './product/product.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { PdashboardComponent } from './pdashboard/pdashboard.component';
+import { WdashboardComponent } from './wdashboard/wdashboard.component';
+import { DheaderComponent } from './dheader/dheader.component';
 
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { PdashboardComponent } from './pdashboard/pdashboard.component';
     PlaceComponent,
     ProductComponent,
     MobileComponent,
-    PdashboardComponent
+    PdashboardComponent,
+    WdashboardComponent,
+    DheaderComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { PdashboardComponent } from './pdashboard/pdashboard.component';
     routes,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCC4lO1PjOC9xzRaOK86FJoht6VBFYcsB8'
-    })
+    }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Place } from './place2';
-import { Product } from './product2';
+import { Place } from './place3';
+import { Product } from './product3';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 
 @Component({
-  selector: 'app-pdashboard',
-  templateUrl: './pdashboard.component.html',
-  styleUrls: ['./pdashboard.component.css']
+  selector: 'app-wdashboard',
+  templateUrl: './wdashboard.component.html',
+  styleUrls: ['./wdashboard.component.css']
 })
+export class WdashboardComponent implements OnInit {
 
-export class PdashboardComponent implements OnInit {
   //DECLARATIONS
   urlBase: string = 'http://localhost:3000/v1';
   lat: number = Math.random() * (5.280007 - 5.050936 + 1) + 5.050936;
@@ -40,7 +40,7 @@ export class PdashboardComponent implements OnInit {
             data => console.log(data)
         );
     //REFRESH PLACES
-    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
+    this.http.get(`${this.urlBase}/producers/${tag}/places`)
       .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
   }
@@ -66,14 +66,15 @@ export class PdashboardComponent implements OnInit {
   getProducerPP(): void {
     //const tag = form['GetProducerPlaces'];
     this.idBase = Math.floor(Math.random() * (1500 - 0 + 1)) + 0;
+    const tag = this.idBase;
 
     //PLACES
-    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
+    this.http.get(`${this.urlBase}/producers/${tag}/places`)
       .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
 
     //PRODUCTS
-    this.http.get(`${this.urlBase}/producers/${this.idBase}/products`)
+    this.http.get(`${this.urlBase}/producers/${tag}/products`)
         .subscribe((res: Response) => this.oProducts = res.json());
     console.log(this.oProducts);
   }
@@ -102,7 +103,7 @@ export class PdashboardComponent implements OnInit {
   refresh1(){
     //PLACES
     const tag = this.idBase;
-    this.http.get(`${this.urlBase}/producers/${this.idBase}/places`)
+    this.http.get(`${this.urlBase}/producers/${tag}/places`)
         .subscribe((res: Response) => this.oPlaces = res.json());
     console.log(this.oPlaces);
   }
@@ -110,20 +111,9 @@ export class PdashboardComponent implements OnInit {
   refresh2(){
     //PRODUCTS
     const tag = this.idBase;
-    this.http.get(`${this.urlBase}/producers/${this.idBase}/products`)
+    this.http.get(`${this.urlBase}/producers/${tag}/products`)
         .subscribe((res: Response) => this.oProducts = res.json());
     console.log(this.oProducts);
-  }
-
-  placeRemoved: Object;
-
-  deletePlace(id:string){
-    console.log(id);
-
-    this.http.delete(`${this.urlBase}/producers/${this.idBase}/places/${id}`)
-      .subscribe((res: Response) => this.placeRemoved = res.json());
-    console.log(this.placeRemoved);
-    this.refresh1();
   }
 
 }
