@@ -65,7 +65,7 @@
 }
 
 .sebm-google-map-container {
-  height: 300px;
+  height: 500px;
 }
 
 .routes {
@@ -120,5 +120,5 @@
     margin-right: .8em;
     margin-bottom: 3px;
     border-radius: 0 0 0 0;
-    
+
 }
