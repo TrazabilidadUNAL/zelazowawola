@@ -80,26 +80,22 @@
 .styled {
   margin: 20px;
 }
- 
+
 .styledul {
   list-style-type: none;
   width: 500px;
 }
- 
+
 .styledh3 {
   font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
 }
- 
+
 .styledp {
   font: 200 12px/1.5 Georgia, Times New Roman, serif;
 }
- 
+
 .styledli {
   padding: 10px;
   overflow: auto;
 }
 
-.bc-places-color{
-    background-color: #ffb989;
-    border-right: double;
-}

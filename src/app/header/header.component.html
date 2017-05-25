@@ -17,7 +17,7 @@
 			<form class="navbar-form navbar-right" id="nav-login" (ngSubmit)="onLoged()">
         <div class="form-group">
           <input type="text" id="uName" name="uName" class="form-control" placeholder="Username"
-							[(ngModel)] = 'role' required>
+							[(ngModel)] = 'user' required>
           <input type="password" id="pWord" name="pWord" class="form-control" placeholder="Password"
 							[(ngModel)] = 'lgID' required>
         </div>
@@ -33,14 +33,14 @@
 								role="button" aria-haspopup="true"
 								aria-expanded="false">Producer<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Signed in as<br><b>{{role}}</b></a></li>
+            <li><a>Signed in as<br><b>{{user}}</b><br><b>{{role}}</b></a></li>
             <li role="separator" class="divider"></li>
             <li><a routerLink="pdashboard">Your profile</a></li>
             <li ><a >Explore</a></li>
             <li><a >Help</a></li>
             <li role="separator" class="divider"></li>
             <li><a routerLink="producer">Settings</a></li>
-            <li><a >Sign out</a></li>
+            <li><a href="#">Sign out</a></li>
           </ul>
         </li>
       </ul>
@@ -54,14 +54,14 @@
 								role="button" aria-haspopup="true"
 								aria-expanded="false">Warehouse<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Signed in as<br><b>{{role}}</b></a></li>
+            <li><a>Signed in as<br><b>{{user}}</b><br><b>{{role}}</b></a></li>
             <li role="separator" class="divider"></li>
-            <li><a >Your profile</a></li>
+            <li><a routerLink="wdashboard">Your profile</a></li>
             <li><a >Explore</a></li>
             <li><a >Help</a></li>
             <li role="separator" class="divider"></li>
             <li><a routerLink="warehouse">Settings</a></li>
-            <li><a >Sign out</a></li>
+            <li><a href="#">Sign out</a></li>
           </ul>
         </li>
       </ul>

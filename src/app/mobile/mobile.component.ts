@@ -189,7 +189,6 @@ export class MobileComponent implements OnInit {
     let min = Math.floor((Math.random() * 44) + 15);
     let minutes, hours;
     for (let j = 0; j < this.lineChartLabels.length; j++) {
-      // this.lineChartLabels[j][1] = Math.floor((Math.random() * 10) - 0);
       min = min + Math.floor((Math.random() * 44) + 15);
       if (min > 59) {
         min = min - 60;
