@@ -30,11 +30,18 @@
   <!-- the component as the initial center of the map: -->
 
   <div class="border-map">
-  <sebm-google-map [latitude]="dRoute?.data.route_logs[0].lat" [longitude]="dRoute?.data.route_logs[0].lon" [zoom]="1.5" [scrollwheel] = "false" [mapTypeControl]="true">
-    <sebm-google-map-marker *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon" [style.color]="'red'">
+  <sebm-google-map [latitude]="latCentral" [longitude]="lonCentral" [zoom]="11" [scrollwheel] = "false" [mapTypeControl]="true">
+
+    <sebm-google-map-marker [latitude]="markers[0].lat" [longitude]="markers[0].lon" [iconUrl] = "'http://meadowville.com/cms/wp-content/uploads/2013/03/google-marker-r.png'">
     </sebm-google-map-marker>
+    <sebm-google-map-marker [latitude]="markers[10].lat" [longitude]="markers[10].lon" [iconUrl] = "'http://www.robertson-electric.com/images/Icons/google-marker.png'">
+
+    </sebm-google-map-marker>
+    <sebm-google-map-marker *ngFor="let marker of markers | slice:1:10" [latitude]="marker.lat" [longitude]="marker.lon" [label]="marker.label">
+    </sebm-google-map-marker>
+
     <sebm-google-map-polyline>
-         <sebm-google-map-polyline-point *ngFor="let ro of dRoute?.data.route_logs" [latitude]="ro.lat" [longitude]="ro.lon">
+         <sebm-google-map-polyline-point *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lon">
          </sebm-google-map-polyline-point>
      </sebm-google-map-polyline>
   </sebm-google-map>

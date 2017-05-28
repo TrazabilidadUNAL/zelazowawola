@@ -5,64 +5,97 @@
 }
 ]*/
 .places, .products {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
 }
 
 .places li, .products li  {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEF;
-    color: #ff3300;
-    margin: .5em;
-    padding: .3em 0;
-    height: 5em;
-    border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  color: #000000 ;
+  margin: .5em;
+  padding: .3em 0;
+  height: 5em;
+  border-style: solid;
+  border-color: #ffffff;
+  outline-style: outset;
+  outline-color: #ff3300;
+  background-color: #ffc299;
 }
 
 .places li.selected:hover, .products li.selected:hover  {
-    background-color: #BBD8DC !important;
-    color: white;
+  background-color: #ffc299 !important;
+  color: black;
 }
 
 .places li:hover, .products li:hover{
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
+  color: black ;
+  background-color: #ffc299;
+  left: .1em;
 }
 
 .places .text, .products .text {
-    position: relative;
-    top: -3px;
+  background-color: #ffc299;
 }
+
+.places button {
+  float: right;
+  margin-bottom: 15px;
+}
+
 .places .badge, .products .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    width:15em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
+  display: inline-block;
+  font-size: small;
+  color: black;
+  padding: 0.8em 0.7em 0.8em 0.7em;
+  background-color: #ffffff ;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  width:14.7em;
+  margin-right: .8em;
+  margin-bottom: 3px;
+  border-radius: 0 0 0 0;
 }
 
 .sebm-google-map-container {
-    height: 300px;
+  height: 300px;
 }
 
 .border-map{
-    border-style: solid;
-    border-color: #ffffff ;
-    margin-top: 10px;
-    outline-style: outset;
-    outline-color: #ff3300 ;
+  border-style: solid;
+  border-color: #ffffff ;
+  margin-top: 10px;
+  outline-style: outset;
+  outline-color: #ff3300 ;
+}
+
+/* style for croplogs */
+
+.styled {
+  margin: 20px;
+}
+
+.styledul {
+  list-style-type: none;
+  width: 500px;
+}
+
+.styledh3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.styledp {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.styledli {
+  padding: 10px;
+  overflow: auto;
 }
 
