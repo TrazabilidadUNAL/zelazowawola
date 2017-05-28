@@ -65,7 +65,7 @@ export class WdashboardComponent implements OnInit {
   //GET PRODUCER PP
   getProducerPP(): void {
     //const tag = form['GetProducerPlaces'];
-    this.idBase = Math.floor(Math.random() * (1500 - 0 + 1)) + 0;
+    this.idBase = Math.floor(Math.random() * (500 - 0 + 1)) + 0;
     const tag = this.idBase;
 
     //PLACES

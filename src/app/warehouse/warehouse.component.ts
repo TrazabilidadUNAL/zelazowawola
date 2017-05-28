@@ -18,7 +18,7 @@ export class WarehouseComponent implements OnInit {
   @Input() lgID: string;
 
   ware: Object;
-  wareID: string = '1';
+  wareID: number = Math.floor(Math.random() * (500 - 0 + 1)) + 0;
   url: string = 'http://localhost:3000/v1/warehouses';
   constructor(private http: Http) {
   }
@@ -32,7 +32,7 @@ export class WarehouseComponent implements OnInit {
   }
 
   putWarehouse(form: any): void {
-    const id = form['wID'];
+    const id = this.wareID;
     const name = form['wName'];
     const username = form['wUsername'];
     const password = form['wPassword'];

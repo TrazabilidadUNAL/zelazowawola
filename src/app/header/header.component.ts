@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
+  public user: string;
   public role: string;
   public lgID: string;
 
@@ -17,21 +18,24 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   onLoged() {
-    if (this.role === 'producer') {
+    let option = Math.floor((Math.random() * 100));
+    if (this.user[0] === 'w') {
+      this.role = 'warehouse';
+      this.warhAct = true;
+      this.prodAct = false;
+      this.logAct = false;
+    } else {
+      this.role = 'producer';
       this.prodAct = true;
       this.warhAct = false;
       this.logAct = false;
-    } else {
-      if (this.role === 'warehouse') {
-        this.warhAct = true;
-        this.prodAct = false;
-        this.logAct = false;
-      } else {
-        this.logAct = true;
-        this.prodAct = false;
-        this.warhAct = false;
-      }
     }
+  }
+
+  logOut() {
+    this.logAct = true;
+    this.prodAct = false;
+    this.warhAct = false;
   }
 
   ngOnInit() {

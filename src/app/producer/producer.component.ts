@@ -10,7 +10,7 @@ import {Producer} from './producer';
 })
 export class ProducerComponent implements OnInit {
   dProducer: Object;
-  pID: string = '1';
+  pID: number = Math.floor(Math.random() * (500 - 0 + 1)) + 0;
   urlProducer: string = 'http://localhost:3000/v1/producers';
   constructor(public http: Http) {}
 
